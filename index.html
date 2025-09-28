@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haneef — Aspiring Cloud Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --card:#0f0f0f;
+      --accent:#000000;
+      --muted:#9aa0a6;
+      --glass: rgba(255,255,255,0.03);
+      --accent-2: #0b84ff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,var(--bg),#060606); color:#e6eef3}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:linear-gradient(180deg,rgba(11,11,11,0.9),rgba(11,11,11,0.6));backdrop-filter:blur(6px);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Playfair Display';font-size:20px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;padding:48px 0}
+    .intro h1{font-family:'Playfair Display',serif;font-size:40px;margin:0}
+    .intro p{color:var(--muted);margin:14px 0}
+    .type{color:var(--accent-2);font-weight:700}
+    .profile{background:var(--card);padding:18px;border-radius:12px}
+    .profile .avatar{width:100%;height:300px;background:linear-gradient(180deg,#060606,#000);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    section.card{background:var(--card);padding:18px;border-radius:12px}
+    .skills li{margin-bottom:8px}
+    footer{margin-top:36px;padding:28px 0;color:var(--muted)}
+    .social{display:flex;gap:12px}
+    .top{position:fixed;right:18px;bottom:18px;background:var(--accent-2);border-radius:999px;padding:10px 12px;cursor:pointer}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .profile{order: -1}
+      .grid{grid-template-columns:1fr}
+      .logo{width:44px;height:44px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">H</div>
+        <div>
+          <div style="font-family:'Playfair Display';font-size:18px">Haneef</div>
+          <div style="font-size:12px;color:var(--muted)">Aspiring Cloud Engineer</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="intro">
+        <h1>Hi, I'm <span style="font-family:'Playfair Display';font-size:44px">Haneef</span></h1>
+        <p class="type"><span id="typed"></span></p>
+        <p>I am an aspiring cloud engineer with experience in QA testing, software development and graphic design. I build resilient applications and love automating infrastructure.</p>
+        <div style="margin-top:18px">
+          <a href="#work" style="background:var(--accent-2);padding:10px 14px;border-radius:8px;text-decoration:none;color:#fff;font-weight:700">See my work</a>
+          <a href="#contact" style="margin-left:12px;color:var(--muted);text-decoration:none">Contact</a>
+        </div>
+      </div>
+      <aside class="profile">
+        <div class="avatar">PROFILE PIC (black)</div>
+        <div style="display:flex;justify-content:space-between;margin-top:12px">
+          <div>
+            <div style="font-weight:700">Email</div>
+            <div style="color:var(--muted);font-size:13px">haneef@example.com</div>
+          </div>
+          <div>
+            <div style="font-weight:700">LinkedIn</div>
+            <div style="color:var(--muted);font-size:13px">linkedin.com/in/haneef</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="card">
+      <h3>About me</h3>
+      <p style="color:var(--muted)">I am a university student studying computer science with a passion for cloud computing, automation and DevOps practices. I enjoy testing, designing, and developing solutions that scale.</p>
+    </section>
+
+    <section class="grid" style="margin-top:18px">
+      <div class="card">
+        <h4>Technical skills</h4>
+        <ul class="skills">
+          <li>Linux, Bash</li>
+          <li>Docker, Kubernetes (learning)</li>
+          <li>AWS basics — EC2, S3, IAM</li>
+          <li>CI/CD — GitHub Actions</li>
+          <li>Python, JavaScript</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Employment</h4>
+        <p style="color:var(--muted)">No formal employment yet — open to internships and junior roles.</p>
+        <h5 style="margin-top:12px">University modules</h5>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <div style="flex:1">
+            <strong>Year 1</strong>
+            <ul style="color:var(--muted)">
+              <li>Introduction to Programming</li>
+              <li>Discrete Mathematics</li>
+              <li>Computer Systems</li>
+            </ul>
+          </div>
+          <div style="flex:1">
+            <strong>Year 2</strong>
+            <ul style="color:var(--muted)">
+              <li>Data Structures</li>
+              <li>Operating Systems</li>
+              <li>Software Engineering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="card" style="margin-top:18px">
+      <h3>Projects / Work</h3>
+      <p style="color:var(--muted)">Space for images of my work. Replace these with real screenshots and links to repos.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
+        <div style="background:#050505;padding:12px;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center">Project 1</div>
+        <div style="background:#050505;padding:12px;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center">Project 2</div>
+        <div style="background:#050505;padding:12px;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center">Project 3</div>
+      </div>
+    </section>
+
+    <section id="articles" class="card" style="margin-top:18px">
+      <h3>Articles</h3>
+      <ul style="color:var(--muted)">
+        <li><a href="#" style="color:var(--accent-2);text-decoration:none">How I started learning cloud — a beginner's path</a></li>
+        <li><a href="#" style="color:var(--accent-2);text-decoration:none">Intro to CI/CD with GitHub Actions</a></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:18px">
+      <h3>Contact</h3>
+      <p style="color:var(--muted)">Email: <a href="mailto:haneef@example.com" style="color:var(--accent-2);text-decoration:none">haneef@example.com</a></p>
+      <div style="margin-top:12px" class="social">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Twitter</a>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700">Haneef</div>
+          <div style="color:var(--muted);font-size:13px">Aspiring Cloud Engineer • Nigeria</div>
+        </div>
+        <div style="text-align:right;color:var(--muted)">
+          <div>Built with ❤️ • Deployed on GitHub Pages</div>
+          <div style="font-size:12px;margin-top:6px">© 2025 Haneef</div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <button class="top" id="topBtn" title="Return to top">↑</button>
+
+  <script>
+    // Type effect
+    const words = ["Student", "QA Software Tester", "Graphic Designer", "Software Developer", "Aspiring Cloud Engineer"];
+    const typedEl = document.getElementById('typed');
+    let wIdx = 0, chIdx = 0, deleting = false;
+    function type(){
+      const cur = words[wIdx];
+      if(!deleting){
+        typedEl.textContent = cur.slice(0, chIdx+1);
+        chIdx++;
+        if(chIdx === cur.length){
+          deleting = true;
+          setTimeout(type, 900);
+          return;
+        }
+      } else {
+        typedEl.textContent = cur.slice(0, chIdx-1);
+        chIdx--;
+        if(chIdx === 0){
+          deleting = false;
+          wIdx = (wIdx+1) % words.length;
+        }
+      }
+      setTimeout(type, deleting?60:120);
+    }
+    type();
+
+    // return to top
+    const topBtn = document.getElementById('topBtn');
+    topBtn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY > 300) topBtn.style.display = 'block'; else topBtn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
