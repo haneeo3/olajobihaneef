@@ -30,7 +30,17 @@
     .intro p{color:var(--muted);margin:14px 0}
     .type{color:var(--accent-2);font-weight:700}
     .profile{background:var(--card);padding:18px;border-radius:12px}
-    .profile .avatar{width:100%;height:300px;background:linear-gradient(180deg,#060606,#000);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted)}
+    .profile .avatar{
+      width:100%;
+      height:300px;
+      background:#000; 
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      color:var(--muted)
+    }
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     section.card{background:var(--card);padding:18px;border-radius:12px}
     .skills li{margin-bottom:8px}
@@ -93,235 +103,210 @@
     opacity: 0.4;
   }
 }
-
   </style>
 </head>
 <body>
-  <div class="background-waves">
+
+<div class="background-waves">
   <div class="wave"></div>
   <div class="wave delay"></div>
   <div class="wave slow"></div>
 </div>
 
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">H</div>
-        <div>
-          <div style="font-family:'Playfair Display';font-size:18px">Haneef</div>
-          <div style="font-size:12px;color:var(--muted)">Aspiring Cloud Engineer</div>
-        </div>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">H</div>
+      <div>
+        <div style="font-family:'Playfair Display';font-size:18px">Haneef</div>
+        <div style="font-size:12px;color:var(--muted)">Aspiring Cloud Engineer</div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#articles">Articles</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
     </div>
-  </header>
-  <main class="container">
-    <section class="hero">
-      <div class="intro">
-        <h1>Hi, I'm <span style="font-family:'Playfair Display';font-size:44px">Haneef</span></h1>
-        <p class="type"><span id="typed"></span></p>
-        <p>I am an aspiring cloud engineer with experience in QA testing, software development and graphic design. I build resilient applications and love automating infrastructure.</p>
-        <div style="margin-top:18px">
-          <a href="#work" style="background:var(--accent-2);padding:10px 14px;border-radius:8px;text-decoration:none;color:#fff;font-weight:700">See my work</a>
-          <a href="#contact" style="margin-left:12px;color:var(--muted);text-decoration:none">Contact</a>
-        </div>
-      </div>
-      <aside class="profile">
-        <div class="avatar">PROFILE PIC (black)</div>
-        <div style="display:flex;justify-content:space-between;margin-top:12px">
-          <div>
-            <div style="font-weight:700">Email</div>
-            <div style="color:var(--muted);font-size:13px">haneef@example.com</div>
-          </div>
-          <div>
-            <div style="font-weight:700">LinkedIn</div>
-            <div style="color:var(--muted);font-size:13px">linkedin.com/in/haneef</div>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="about" class="card">
-      <h3>About me</h3>
-      <p style="color:var(--muted)">I am a university student studying computer science with a passion for cloud computing, automation and DevOps practices. I enjoy testing, designing, and developing solutions that scale.</p>
-    </section>
-
-    <section class="grid" style="margin-top:18px">
-      <div class="card">
-        <h4>Technical skills</h4>
-        <ul class="skills">
-          <li>Linux, Bash</li>
-          <li>Docker, Kubernetes (learning)</li>
-          <li>AWS basics — EC2, S3, IAM</li>
-          <li>CI/CD — GitHub Actions</li>
-          <li>Python, JavaScript</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>Employment</h4>
-        <p style="color:var(--muted)">No formal employment yet — open to internships and junior roles.</p>
-        <h5 style="margin-top:12px">University modules</h5>
-        <div style="display:flex;gap:8px;margin-top:8px">
-          <div style="flex:1">
-            <strong>Year 1</strong>
-            <ul style="color:var(--muted)">
-              <li>Introduction to Programming</li>
-              <li>Discrete Mathematics</li>
-              <li>Computer Systems</li>
-            </ul>
-          </div>
-          <div style="flex:1">
-            <strong>Year 2</strong>
-            <ul style="color:var(--muted)">
-              <li>Data Structures</li>
-              <li>Operating Systems</li>
-              <li>Software Engineering</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work" class="card" style="margin-top:18px">
-      <h3>Projects / Work</h3>
-      <p style="color:var(--muted)">Space for images of my work. Replace these with real screenshots and links to repos.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
-        <div style="background:#050505;padding:12px;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center">Project 1</div>
-        <div style="background:#050505;padding:12px;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center">Project 2</div>
-        <div style="background:#050505;padding:12px;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center">Project 3</div>
-      </div>
-    </section>
-
-    <section id="articles" class="card" style="margin-top:18px">
-      <h3>Articles</h3>
-      <ul style="color:var(--muted)">
-        <li><a href="#" style="color:var(--accent-2);text-decoration:none">How I started learning cloud — a beginner's path</a></li>
-        <li><a href="#" style="color:var(--accent-2);text-decoration:none">Intro to CI/CD with GitHub Actions</a></li>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </section>
+    </nav>
+  </div>
+</header>
 
-<section id="resume" class="card" style="margin-top:18px">
-      <h3>Resume</h3>
+<main class="container">
 
-      <h4 style="margin-top:12px">Work Experience</h4>
-      <div style="color:var(--muted);margin-top:8px">
-        <p><strong>Lagos State Polytechnic Ikorodu</strong> — Technical Lead<br>
-        <small>Jul 2025 – Oct 2025 | Lagos State, Nigeria</small><br>
-        • Led technical initiatives and ensured project completion within deadlines.<br>
-        • Collaborated with cross-functional teams to enhance customer service.<br>
-        • Improved data analysis processes to boost organizational efficiency.</p>
+  <section class="hero">
+    <div class="intro">
+      <h1>Hi, I'm <span style="font-family:'Playfair Display';font-size:44px">Haneef</span></h1>
+      <p class="type"><span id="typed"></span></p>
+      <p>I am an aspiring cloud engineer with experience in QA testing, software development and graphic design. I build resilient applications and love automating infrastructure.</p>
 
-        <p><strong>Total Apex Media</strong> — Content Writer<br>
-        <small>Mar 2025 – Oct 2025 | United States, Remote</small><br>
-        • Created and optimized SEO-compliant content across digital platforms.<br>
-        • Utilized tools like Slack and Google Suite to streamline writing workflows.</p>
-
-        <p><strong>Lyfebites LEMP</strong> — Software Quality Assurance Tester<br>
-        <small>Jul 2022 – Jul 2023 | Greater London, England, Remote</small><br>
-        • Performed software testing and QA using Jira and Azure.<br>
-        • Collaborated with dev teams to enhance software performance and reliability.</p>
+      <div style="margin-top:18px">
+        <a href="#work" style="background:var(--accent-2);padding:10px 14px;border-radius:8px;text-decoration:none;color:#fff;font-weight:700">See my work</a>
+        <a href="#contact" style="margin-left:12px;color:var(--muted);text-decoration:none">Contact</a>
       </div>
+    </div>
 
-      <h4 style="margin-top:18px">Education</h4>
-      <div style="color:var(--muted);margin-top:8px">
-        <p><strong>Crescent University Abeokuta</strong> — Bachelor of Science, Computer Science<br>
-        <small>Oct 2024 – Jul 2027 | Abeokuta, Nigeria</small></p>
-      </div>
-
-      <h4 style="margin-top:18px">Certifications</h4>
-      <ul style="color:var(--muted);margin-top:8px">
-        <li>Idea Generation Certificate</li>
-        <li>AI for Beginners & AI for Business Professionals</li>
-        <li>Cybersecurity Fundamentals</li>
-        <li>Data Science and Analytics</li>
-        <li>Certified Software Tester (CSTE)</li>
-        <li>JavaScript Algorithms and Data Structures</li>
-        <li>Machine Learning with Python</li>
-        <li>Responsive Web Design, HTML/CSS</li>
-        <li>WordPress Website Design</li>
-      </ul>
-
-      <h4 style="margin-top:18px">Skills & Technologies</h4>
-      <ul style="color:var(--muted);margin-top:8px;columns:2">
-        <li>Python, JavaScript, C#, HTML, CSS</li>
-        <li>Microsoft Azure, AWS (EC2, S3, Lambda)</li>
-        <li>QA Automation, Selenium, Jira, Azure</li>
-        <li>Cloud Computing, CI/CD, GitHub Actions</li>
-        <li>Data Analysis, AI, Machine Learning</li>
-        <li>Leadership, Collaboration, Communication</li>
-      </ul>
-
-      <h4 style="margin-top:18px">Interests</h4>
-      <p style="color:var(--muted)">Calisthenics, Reading, Gardening, Chess</p>
-    </section>
-    
-    <section id="contact" class="card" style="margin-top:18px">
-      <h3>Contact</h3>
-      <p style="color:var(--muted)">Email: <a href="mailto:haneef@example.com" style="color:var(--accent-2);text-decoration:none">haneef@example.com</a></p>
-      <div style="margin-top:12px" class="social">
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-        <a href="#">Twitter</a>
-      </div>
-    </section>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <aside class="profile">
+      <div class="avatar">PROFILE PIC</div>
+      <div style="display:flex;justify-content:space-between;margin-top:12px">
         <div>
-          <div style="font-weight:700">Haneef</div>
-          <div style="color:var(--muted);font-size:13px">Aspiring Cloud Engineer • Nigeria</div>
+          <div style="font-weight:700">Email</div>
+          <div style="color:var(--muted);font-size:13px">olajobihaneef@gmail.com</div>
         </div>
-        <div style="text-align:right;color:var(--muted)">
-          <div>Built with ❤️ • Deployed on GitHub Pages</div>
-          <div style="font-size:12px;margin-top:6px">© 2025 Haneef</div>
+        <div>
+          <div style="font-weight:700">LinkedIn</div>
+          <div style="color:var(--muted);font-size:13px">linkedin.com/in/haneef-olajobi</div>
         </div>
       </div>
-    </footer>
+    </aside>
+  </section>
 
-  </main>
+  <section id="about" class="card">
+    <h3>About me</h3>
+    <p style="color:var(--muted)">I am a university student studying computer science with a passion for cloud computing, automation and DevOps practices. I enjoy testing, designing, and developing solutions that scale.</p>
+  </section>
 
-  <button class="top" id="topBtn" title="Return to top">↑</button>
+  <section class="grid" style="margin-top:18px">
+    <div class="card">
+      <h4>Technical skills</h4>
+      <ul class="skills">
+        <li>Linux, Bash</li>
+        <li>Docker, Kubernetes (learning)</li>
+        <li>AWS — EC2, S3, Lambda, IAM</li>
+        <li>CI/CD — GitHub Actions</li>
+        <li>Python, JavaScript</li>
+      </ul>
+    </div>
 
-  <script>
-    // Type effect
-    const words = ["Student", "QA Software Tester", "Graphic Designer", "Software Developer", "Aspiring Cloud Engineer"];
-    const typedEl = document.getElementById('typed');
-    let wIdx = 0, chIdx = 0, deleting = false;
-    function type(){
-      const cur = words[wIdx];
-      if(!deleting){
-        typedEl.textContent = cur.slice(0, chIdx+1);
-        chIdx++;
-        if(chIdx === cur.length){
-          deleting = true;
-          setTimeout(type, 900);
-          return;
-        }
-      } else {
-        typedEl.textContent = cur.slice(0, chIdx-1);
-        chIdx--;
-        if(chIdx === 0){
-          deleting = false;
-          wIdx = (wIdx+1) % words.length;
-        }
+    <div class="card">
+      <h4>Employment</h4>
+      <h5 style="margin-top:12px">University modules</h5>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <div style="flex:1">
+          <strong>Year 1</strong>
+          <ul style="color:var(--muted)">
+            <li>Introduction to Programming</li>
+            <li>Discrete Mathematics</li>
+            <li>Computer Systems</li>
+          </ul>
+        </div>
+        <div style="flex:1">
+          <strong>Year 2</strong>
+          <ul style="color:var(--muted)">
+            <li>Data Structures</li>
+            <li>Operating Systems</li>
+            <li>Software Engineering</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="work" class="card" style="margin-top:18px">
+    <h3>Projects / Work</h3>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px">
+
+      <div style="background:var(--card);padding:16px;border-radius:8px">
+        <h4>Automatic Backup System</h4>
+        <p style="color:var(--muted)">Automates daily data backups to Amazon S3 using Python and AWS services.</p>
+        <a href="https://github.com/haneeo3/Automatic-Backup-System" style="color:var(--accent-2);text-decoration:none;font-weight:600">View on GitHub →</a>
+      </div>
+
+      <div style="background:var(--card);padding:16px;border-radius:8px">
+        <h4>Cloud Cost Calculator</h4>
+        <p style="color:var(--muted)">Monitors daily AWS spending and sends alerts using Lambda, SNS, and CloudWatch.</p>
+        <a href="https://github.com/haneeo3/Cloud-Cost-Calculator" style="color:var(--accent-2);text-decoration:none;font-weight:600">View on GitHub →</a>
+      </div>
+
+      <div style="background:var(--card);padding:16px;border-radius:8px">
+        <h4>AWS Static Website</h4>
+        <p style="color:var(--muted)">A responsive portfolio website hosted on Amazon S3 with static hosting enabled.</p>
+        <a href="https://github.com/haneeo3/aws-static-website" style="color:var(--accent-2);text-decoration:none;font-weight:600">View on GitHub →</a>
+      </div>
+
+      <div style="background:var(--card);padding:16px;border-radius:8px">
+        <h4>Website Uptime Monitor</h4>
+        <p style="color:var(--muted)">Checks website health every 5 minutes and sends downtime alerts via SNS.</p>
+        <a href="https://github.com/haneeo3/Website-Uptime-Monitor" style="color:var(--accent-2);text-decoration:none;font-weight:600">View on GitHub →</a>
+      </div>
+
+      <div style="background:var(--card);padding:16px;border-radius:8px">
+        <h4>Customer Inquiry Manager</h4>
+        <p style="color:var(--muted)">AI-powered system using AWS Bedrock to process and respond to customer messages.</p>
+        <a href="https://github.com/haneeo3/Customer-Inquiry-Manager" style="color:var(--accent-2);text-decoration:none;font-weight:600">View on GitHub →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="articles" class="card" style="margin-top:18px">
+    <h3>Articles</h3>
+    <p style="color:var(--muted)">Articles to be added soon.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="card" style="margin-top:18px">
+    <h3>Contact</h3>
+    <p style="color:var(--muted)">Email: <a href="mailto:olajobihaneef@gmail.com" style="color:var(--accent-2);text-decoration:none">olajobihaneef@gmail.com</a></p>
+    <div style="margin-top:12px" class="social">
+      <a href="https://www.linkedin.com/in/haneef-olajobi" style="color:var(--accent-2)">LinkedIn</a>
+      <a href="https://github.com/haneeo3" style="color:var(--accent-2)">GitHub</a>
+      <a href="#" style="color:var(--accent-2)">Twitter</a>
+    </div>
+  </section>
+
+  <footer>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:700">Haneef</div>
+        <div style="color:var(--muted);font-size:13px">Aspiring Cloud Engineer • Nigeria</div>
+      </div>
+      <div style="text-align:right;color:var(--muted)">
+        <div>Built with ❤️ • Deployed on GitHub Pages</div>
+        <div style="font-size:12px;margin-top:6px">© 2025 Haneef</div>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<button class="top" id="topBtn" title="Return to top">↑</button>
+
+<script>
+  const words = ["Student", "QA Software Tester", "Graphic Designer", "Software Developer", "Aspiring Cloud Engineer"];
+  const typedEl = document.getElementById('typed');
+  let wIdx = 0, chIdx = 0, deleting = false;
+  function type(){
+    const cur = words[wIdx];
+    if(!deleting){
+      typedEl.textContent = cur.slice(0, chIdx+1);
+      chIdx++;
+      if(chIdx === cur.length){
+        deleting = true;
+        setTimeout(type, 900);
+        return;
       }
-      setTimeout(type, deleting?60:120);
+    } else {
+      typedEl.textContent = cur.slice(0, chIdx-1);
+      chIdx--;
+      if(chIdx === 0){
+        deleting = false;
+        wIdx = (wIdx+1) % words.length;
+      }
     }
-    type();
+    setTimeout(type, deleting?60:120);
+  }
+  type();
 
-    // return to top
-    const topBtn = document.getElementById('topBtn');
-    topBtn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 300) topBtn.style.display = 'block'; else topBtn.style.display = 'none';
-    });
-  </script>
+  const topBtn = document.getElementById('topBtn');
+  topBtn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+  window.addEventListener('scroll', ()=>{
+    if(window.scrollY > 300) topBtn.style.display = 'block'; else topBtn.style.display = 'none';
+  });
+</script>
+
 </body>
 </html>
