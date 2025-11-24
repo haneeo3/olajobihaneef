@@ -38,7 +38,3 @@ This is a responsive personal portfolio website built for **Haneef**, an aspirin
 
 ## License
 This project is free to use and customize for personal use.
-
----
-
-✨ Designed with ❤️ by GPT-5 for Haneef.
