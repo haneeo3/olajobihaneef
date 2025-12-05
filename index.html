@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-    <meta name="google-site-verification" content="cD5iBtHeSKVAMyM340J7u19lQ32wUTmiHKW76IgH75k" />
-
+  <meta name="google-site-verification" content="cD5iBtHeSKVAMyM340J7u19lQ32wUTmiHKW76IgH75k" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Haneef Olajobi – Cloud Engineer | Portfolio</title>
-
-<meta name="description" content="Haneef Olajobi is an aspiring Cloud Engineer with skills in AWS, DevOps, QA Testing, Linux, and Web Development. Explore projects, articles, and cloud journey.">
-<meta name="keywords" content="Haneef, Olajobi, Haneef Olajobi, Cloud Engineer, Aspiring Cloud Engineer, AWS, DevOps, Nigeria Cloud Engineer, Cloud Portfolio, Cloud Projects">
-<meta name="author" content="Haneef Olajobi">
+  <title>Haneef Olajobi – Cloud Engineer | Portfolio</title>
+  <meta name="description" content="Haneef Olajobi is an aspiring Cloud Engineer with skills in AWS, DevOps, QA Testing, Linux, and Web Development. Explore projects, articles, and cloud journey.">
+  <meta name="keywords" content="Haneef, Olajobi, Haneef Olajobi, Cloud Engineer, Aspiring Cloud Engineer, AWS, DevOps, Nigeria Cloud Engineer, Cloud Portfolio, Cloud Projects">
+  <meta name="author" content="Haneef Olajobi">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +117,38 @@
       display:none;
     }
 
+    .icon-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .icon-links a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaeff5;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .icon-links a:hover {
+      background: var(--accent);
+    }
+
+    .icon-links svg {
+      width: 18px;
+      height: 18px;
+      fill: #444;
+      transition: 0.2s;
+    }
+
+    .icon-links a:hover svg {
+      fill: #fff;
+    }
+
     @media(max-width:900px){
       .hero{grid-template-columns:1fr;}
       .profile{order:-1}
@@ -168,15 +198,42 @@
         <img src="WhatsApp Image 2025-11-06 at 10.21.52_428c4073.jpg" alt="Haneef Profile Picture">
       </div>
 
-      <div style="display:flex;justify-content:space-between;margin-top:12px">
-        <div>
-          <div style="font-weight:700">Email</div>
-          <div style="color:var(--muted);font-size:13px">olajobihaneef@gmail.com</div>
-        </div>
-        <div>
-          <div style="font-weight:700">LinkedIn</div>
-          <div style="color:var(--muted);font-size:13px">linkedin.com/in/haneef-olajobi</div>
-        </div>
+      <!-- Icon links -->
+      <div class="icon-links">
+        <!-- Email -->
+        <a href="mailto:olajobihaneef@gmail.com" title="Email Haneef">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 
+            2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
+            4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank" title="LinkedIn Profile">
+          <svg viewBox="0 0 24 24">
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 
+            6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 
+            4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 
+            1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 
+            0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/haneeo3" target="_blank" title="GitHub Profile">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 
+            3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 
+            1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 
+            -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 
+            -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 
+            11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 
+            3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 
+            5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 
+            10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/>
+          </svg>
+        </a>
       </div>
     </aside>
   </section>
@@ -220,32 +277,26 @@
     <h3>Projects / Work</h3>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px">
-
       <div class="card">
         <h4>Automatic Backup System</h4>
         <p style="color:var(--muted)">Automates daily data backups to Amazon S3 using Python.</p>
       </div>
-
       <div class="card">
         <h4>Cloud Cost Calculator</h4>
         <p style="color:var(--muted)">Monitors AWS spending and sends alerts.</p>
       </div>
-
       <div class="card">
         <h4>AWS Static Website</h4>
         <p style="color:var(--muted)">Responsive portfolio hosted on S3.</p>
       </div>
-
       <div class="card">
         <h4>Website Uptime Monitor</h4>
         <p style="color:var(--muted)">Checks uptime and sends notifications.</p>
       </div>
-
       <div class="card">
         <h4>Customer Inquiry Manager</h4>
         <p style="color:var(--muted)">AI-powered response automation system.</p>
       </div>
-
     </div>
   </section>
 
@@ -269,7 +320,6 @@
         <strong>Haneef</strong><br>
         <span style="font-size:12px">Aspiring Cloud Engineer • Nigeria</span>
       </div>
-
       <div style="text-align:right;font-size:12px">
         Built with ❤️ • Hosted on GitHub Pages<br>
         © 2025 Haneef
@@ -288,7 +338,6 @@
 
   function type(){
     const cur = words[wIdx];
-
     if(!deleting){
       typedEl.textContent = cur.slice(0, chIdx+1);
       chIdx++;
@@ -297,8 +346,7 @@
         setTimeout(type, 900);
         return;
       }
-    } 
-    else {
+    } else {
       typedEl.textContent = cur.slice(0, chIdx-1);
       chIdx--;
       if(chIdx === 0){
@@ -314,7 +362,6 @@
   window.addEventListener('scroll', ()=>{
     topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
   });
-
   topBtn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
 </script>
 
