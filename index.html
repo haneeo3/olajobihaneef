@@ -8,11 +8,15 @@
 <meta name="keywords" content="Haneef, Olajobi, Haneef Olajobi, Cloud Engineer, Aspiring Cloud Engineer, AWS, DevOps, Nigeria Cloud Engineer, Cloud Portfolio, Cloud Projects">
 <meta name="author" content="Haneef Olajobi">
 
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+/* --------------------------
+   Root Variables
+-------------------------- */
 :root{
   --bg:#f8f9fa;
   --card:#ffffff;
@@ -20,42 +24,93 @@
   --accent:#0b84ff;
   --accent-2:#4caf50;
   --glass: rgba(255,255,255,0.5);
+  --danger:#ff5252;
+  --success:#4caf50;
+  --warning:#ffeb3b;
+  --info:#2196f3;
 }
 
-/* Base */
-*{box-sizing:border-box}
-body{
+/* --------------------------
+   Base Styles
+-------------------------- */
+*{
+  box-sizing:border-box;
   margin:0;
+  padding:0;
+}
+
+body{
   font-family:Inter, system-ui, sans-serif;
-  background:#f3f6f9;
+  background:var(--bg);
   color:#1a1a1a;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
 }
 
-.container{max-width:1100px;margin:0 auto;padding:24px}
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px;
+}
 
-/* Header */
+/* --------------------------
+   Header & Nav
+-------------------------- */
 header{
-  position:sticky;top:0;
+  position:sticky;
+  top:0;
   background:rgba(255,255,255,0.95);
   backdrop-filter:blur(6px);
   border-bottom:1px solid #e3e3e3;
   z-index:50;
 }
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{display:flex;align-items:center;gap:12px}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
 .logo{
-  width:52px;height:52px;
+  width:52px;
+  height:52px;
   border-radius:12px;
   background:#eaeff5;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-family:'Playfair Display';font-size:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-family:'Playfair Display';
+  font-size:20px;
 }
-nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-nav a{text-decoration:none;color:#555;font-weight:600}
 
-/* Hero */
+nav ul{
+  display:flex;
+  gap:18px;
+  list-style:none;
+}
+
+nav a{
+  text-decoration:none;
+  color:#555;
+  font-weight:600;
+  transition:0.2s;
+}
+nav a:hover{
+  color:var(--accent);
+}
+
+/* --------------------------
+   Hero Section
+-------------------------- */
 .hero{
   display:grid;
   grid-template-columns:1fr 380px;
@@ -63,28 +118,111 @@ nav a{text-decoration:none;color:#555;font-weight:600}
   align-items:center;
   padding:48px 0;
 }
-.intro h1{ font-family:'Playfair Display'; font-size:40px;margin:0; }
-.intro p{color:var(--muted)}
-.type{color:var(--accent);font-weight:700}
 
-/* Profile card */
+.intro h1{
+  font-family:'Playfair Display';
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.intro p{
+  color:var(--muted);
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+.type{
+  color:var(--accent);
+  font-weight:700;
+  font-size:18px;
+}
+
+.intro a{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  margin-right:10px;
+  transition:0.2s;
+}
+
+.intro a:hover{
+  opacity:0.9;
+}
+
+/* --------------------------
+   Profile Card
+-------------------------- */
 .profile{
   background:var(--card);
   padding:18px;
   border-radius:12px;
   box-shadow:0 4px 20px rgba(0,0,0,0.06);
 }
-.avatar{ width:100%; height:300px; border-radius:8px; overflow:hidden; background:#ddd; }
-.avatar img{ width:100%; height:100%; object-fit:cover; border-radius:8px; }
 
-/* Grid & cards */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-section.card{ background:var(--card); padding:18px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+.avatar{
+  width:100%;
+  height:300px;
+  border-radius:8px;
+  overflow:hidden;
+  background:#ddd;
+}
 
-/* Footer */
-footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e5e5e5;}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:8px;
+}
 
-/* Game area wrapper - centers the game */
+.icon-links{
+  display:flex;
+  gap:12px;
+  margin-top:12px;
+}
+
+.icon-links a{
+  color:inherit;
+  text-decoration:none;
+  transition:0.2s;
+}
+.icon-links a:hover svg path{
+  fill:var(--accent);
+}
+
+/* --------------------------
+   Card & Grid Layout
+-------------------------- */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+section.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  margin-bottom:18px;
+}
+
+/* --------------------------
+   Footer
+-------------------------- */
+footer{
+  margin-top:36px;
+  padding:28px 0;
+  color:var(--muted);
+  border-top:1px solid #e5e5e5;
+  text-align:center;
+  font-size:14px;
+}
+
+/* --------------------------
+   Caterpillar Game Styles
+-------------------------- */
 .game-wrapper {
   display:flex;
   justify-content:center;
@@ -92,7 +230,6 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   margin-top:12px;
 }
 
-/* Play area */
 .play {
   position:relative;
   width:100%;
@@ -103,14 +240,15 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   border-radius:12px;
   overflow:hidden;
   margin:0 auto;
-  touch-action: none; /* avoid browser gesture interference */
+  touch-action:none;
 }
 
-/* focus styling when user clicks game to use keyboard */
-.play:focus { outline: 3px solid rgba(11,132,255,0.18); box-shadow:0 6px 18px rgba(11,132,255,0.08); }
+.play:focus{
+  outline:3px solid rgba(11,132,255,0.18);
+  box-shadow:0 6px 18px rgba(11,132,255,0.08);
+}
 
-/* Caterpillar pieces */
-.caterpillar-head, .segment {
+.caterpillar-head, .segment{
   position:absolute;
   width:40px;
   height:40px;
@@ -118,7 +256,8 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   background:#2e7d32;
   box-shadow:0 3px 6px rgba(0,0,0,0.14);
 }
-.caterpillar-head::before, .caterpillar-head::after {
+
+.caterpillar-head::before, .caterpillar-head::after{
   content:"";
   position:absolute;
   top:10px;
@@ -127,9 +266,9 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   border-radius:50%;
   background:#fff;
 }
-.caterpillar-head::after { left:20px; }
+.caterpillar-head::after{ left:20px; }
 
-.leaf {
+.leaf{
   position:absolute;
   width:30px;
   height:30px;
@@ -138,14 +277,13 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   box-shadow:0 2px 4px rgba(0,0,0,0.12);
 }
 
-/* messages */
-.win {
+.win{
   position:absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%, -50%);
+  transform:translate(-50%,-50%);
   padding:16px 24px;
-  background:#ffeb3b;
+  background:var(--warning);
   border:2px solid #f9a825;
   border-radius:12px;
   font-weight:bold;
@@ -154,7 +292,8 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   z-index:10;
   text-align:center;
 }
-.level-label {
+
+.level-label{
   position:absolute;
   top:10px;
   left:10px;
@@ -165,17 +304,14 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   border:1px solid var(--accent-2);
 }
 
-/* Controls container (buttons below the game) */
-.controls {
+.controls{
   display:flex;
   justify-content:center;
   margin-top:14px;
   gap:18px;
-  user-select:none;
 }
 
-/* D-pad cluster: larger round buttons */
-.dpad {
+.dpad{
   display:grid;
   grid-template-areas:
     ". up ."
@@ -183,14 +319,13 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
     ". down .";
   grid-template-columns:64px 64px 64px;
   gap:12px;
-  align-items:center;
-  justify-items:center;
 }
-.dpad .btn {
+
+.dpad .btn{
   width:64px;
   height:64px;
   border-radius:50%;
-  background:linear-gradient(180deg,#ffffff,#f1f1f1);
+  background:linear-gradient(180deg,#fff,#f1f1f1);
   border:1px solid #ccc;
   display:flex;
   align-items:center;
@@ -199,29 +334,38 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   font-size:20px;
   box-shadow:0 6px 14px rgba(0,0,0,0.08);
   cursor:pointer;
-  touch-action: manipulation;
+  touch-action:manipulation;
 }
-.dpad .btn:active { transform:translateY(2px); box-shadow:0 3px 8px rgba(0,0,0,0.12); }
-
-.btn.up    { grid-area: up; }
-.btn.down  { grid-area: down; }
-.btn.left  { grid-area: left; }
-.btn.right { grid-area: right; }
-.btn.center { grid-area: center; width:56px; height:56px; background:#e6ffe6; border:1px solid var(--accent-2); font-size:14px; }
-
-/* smaller screens */
-@media(max-width:540px){
-  .dpad { grid-template-columns:56px 56px 56px; gap:10px; }
-  .dpad .btn { width:56px; height:56px; font-size:18px; }
-  .play { height:340px; }
+.dpad .btn:active{
+  transform:translateY(2px);
+  box-shadow:0 3px 8px rgba(0,0,0,0.12);
 }
 
-/* help text */
-.game-hint {
+.btn.up{ grid-area:up; }
+.btn.down{ grid-area:down; }
+.btn.left{ grid-area:left; }
+.btn.right{ grid-area:right; }
+.btn.center{
+  grid-area:center;
+  width:56px;
+  height:56px;
+  background:#e6ffe6;
+  border:1px solid var(--accent-2);
+  font-size:14px;
+}
+
+.game-hint{
   text-align:center;
   color:var(--muted);
   font-size:13px;
   margin-top:8px;
+}
+
+/* Responsive */
+@media(max-width:540px){
+  .dpad{ grid-template-columns:56px 56px 56px; gap:10px; }
+  .dpad .btn{ width:56px; height:56px; font-size:18px; }
+  .play{ height:340px; }
 }
 </style>
 </head>
@@ -236,7 +380,6 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
         <div style="font-size:12px;color:var(--muted)">Aspiring Cloud Engineer</div>
       </div>
     </div>
-
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
@@ -250,325 +393,148 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
 
 <main class="container">
 
-  <section class="hero">
-    <div class="intro">
-      <h1>Hi, I'm <span style="font-size:44px">Haneef</span></h1>
-      <p class="type"><span id="typed">Aspiring Cloud Engineer</span></p>
-      <p>I am an aspiring cloud engineer with experience in QA testing, software development and graphic design.</p>
-
-      <div style="margin-top:18px; display:flex; gap:12px">
-        <a href="#work" style="background:var(--accent);padding:10px 14px;border-radius:8px;text-decoration:none;color:#fff;font-weight:700">
-          See my work
-        </a>
-        <a href="Haneef_Olajobi_Resume.pdf" download style="background:#555;padding:10px 14px;border-radius:8px;text-decoration:none;color:#fff;font-weight:700">
-          Resume
-        </a>
-      </div>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="intro">
+    <h1>Hi, I'm <span style="font-size:44px">Haneef</span></h1>
+    <p class="type"><span id="typed">Aspiring Cloud Engineer</span></p>
+    <p>I am an aspiring cloud engineer with experience in QA testing, software development, and graphic design.</p>
+    <div style="margin-top:18px; display:flex; gap:12px">
+      <a href="#work" style="background:var(--accent);color:#fff">See my work</a>
+      <a href="Haneef_Olajobi_Resume.pdf" download style="background:#555;color:#fff">Resume</a>
     </div>
-
-    <aside class="profile">
-      <div class="avatar">
-        <!-- Replace source with your real image -->
-        <img src="WhatsApp Image 2025-11-06 at 10.21.52_428c4073.jpg" alt="Haneef Profile Picture">
-      </div>
-
-      <div class="icon-links" style="margin-top:12px">
-        <a href="mailto:olajobihaneef@gmail.com" title="Email Haneef">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank" title="LinkedIn Profile">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/></svg>
-        </a>
-        <a href="https://github.com/haneeo3" target="_blank" title="GitHub Profile">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        </a>
-      </div>
-    </aside>
-  </section>
-
-  <section id="about" class="card">
-    <h3>About me</h3>
-    <p style="color:var(--muted)">I am a university student studying computer science with a passion for cloud computing, automation and DevOps practices.</p>
-  </section>
-
-  <section class="grid" style="margin-top:18px">
-    <div class="card">
-      <h4>Technical skills</h4>
-      <ul>
-        <li>Linux, Bash</li>
-        <li>Docker, Kubernetes (learning)</li>
-        <li>AWS — EC2, S3, Lambda, IAM</li>
-        <li>CI/CD — GitHub Actions</li>
-        <li>Python, JavaScript</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h4>Education</h4>
-      <strong>Year 1</strong>
-      <ul style="color:var(--muted)">
-        <li>Introduction to Programming</li>
-        <li>Discrete Mathematics</li>
-        <li>Computer Systems</li>
-      </ul>
-
-      <strong>Year 2</strong>
-      <ul style="color:var(--muted)">
-        <li>Data Structures</li>
-        <li>Operating Systems</li>
-        <li>Software Engineering</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="work" class="card" style="margin-top:18px">
-    <h3>Projects / Work</h3>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px">
-      <div class="card">
-        <h4>Automatic Backup System</h4>
-        <strong>Tools/Services:</strong> Python, AWS S3, Cron Jobs<br>
-        <p style="color:var(--muted)">Automates daily data backups to Amazon S3 with logging for easy monitoring.</p>
-      </div>
-
-      <div class="card">
-        <h4>Cloud Cost Calculator</h4>
-        <strong>Tools/Services:</strong> Python, AWS Boto3, Lambda, SNS<br>
-        <p style="color:var(--muted)">Monitors AWS spending and sends notifications when usage exceeds thresholds.</p>
-      </div>
-
-      <div class="card">
-        <h4>AWS Static Website</h4>
-        <strong>Tools/Services:</strong> AWS S3, CloudFront, HTML/CSS<br>
-        <p style="color:var(--muted)">Responsive portfolio hosted on S3 with global CDN delivery via CloudFront.</p>
-      </div>
-
-      <div class="card">
-        <h4>Website Uptime Monitor</h4>
-        <strong>Tools/Services:</strong> Python, AWS Lambda, SNS, CloudWatch<br>
-        <p style="color:var(--muted)">Monitors website uptime and sends real-time alerts when downtime occurs.</p>
-      </div>
-
-      <div class="card">
-        <h4>Customer Inquiry Manager</h4>
-        <strong>Tools/Services:</strong> Python, OpenAI API, Flask, AWS S3<br>
-        <p style="color:var(--muted)">Automates AI-powered responses to customer inquiries and stores logs in S3.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Games Section -->
-  <section id="games" class="card" style="margin-top:18px">
-    <h3>Games / Fun Projects</h3>
-    <p style="color:var(--muted)">Play my Caterpillar Game directly here!</p>
-
-    <div class="game-wrapper">
-      <div class="play" id="play" tabindex="0" title="Click to focus and use WASD keys">
-        <div class="level-label" id="levelDisplay">Level: 1</div>
-        <div class="caterpillar-head" id="head"></div>
-        <div class="win" id="win"></div>
-      </div>
-    </div>
-
-    <!-- Controls below the game -->
-    <div class="controls">
-      <div class="dpad" id="dpad">
-        <div class="btn up" data-dir="up">▲</div>
-        <div class="btn left" data-dir="left">◀</div>
-        <div class="btn center">Play</div>
-        <div class="btn right" data-dir="right">▶</div>
-        <div class="btn down" data-dir="down">▼</div>
-      </div>
-    </div>
-
-    <div class="game-hint">Tap the buttons (mobile) or click the game then press WASD (desktop). Click outside to unfocus.</div>
-  </section>
-
- <section id="contact" class="card" style="margin-top:18px">
-  <h3>Contact</h3>
-
-  <div class="icon-links" style="
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    align-items:center;
-    margin-top:10px;
-  ">
-    <a href="mailto:olajobihaneef@gmail.com" title="Email Haneef" style="
-      padding:10px;
-      border-radius:10px;
-      transition:0.2s;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <svg width="30" height="30" viewBox="0 0 24 24">
-        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-      </svg>
-    </a>
-
-    <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank" title="LinkedIn Profile" style="
-      padding:10px;
-      border-radius:10px;
-      transition:0.2s;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <svg width="30" height="30" viewBox="0 0 24 24">
-        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/>
-      </svg>
-    </a>
-
-    <a href="https://github.com/haneeo3" target="_blank" title="GitHub Profile" style="
-      padding:10px;
-      border-radius:10px;
-      transition:0.2s;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <svg width="30" height="30" viewBox="0 0 24 24">
-        <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/>
-      </svg>
-    </a>
   </div>
+
+  <aside class="profile">
+    <div class="avatar">
+      <img src="WhatsApp Image 2025-11-06 at 10.21.52_428c4073.jpg" alt="Haneef Profile Picture">
+    </div>
+    <div class="icon-links">
+      <a href="mailto:olajobihaneef@gmail.com" title="Email Haneef">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank" title="LinkedIn Profile">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/>
+        </svg>
+      </a>
+      <a href="https://github.com/haneeo3" target="_blank" title="GitHub Profile">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/>
+        </svg>
+      </a>
+    </div>
+  </aside>
 </section>
 
-
-</main>
-
-<footer>
-  <div class="container">© 2025 Haneef Olajobi. All rights reserved.</div>
-</footer>
+<!-- About, Skills, Education, Projects, Games, Contact go here -->
+<!-- Caterpillar game JavaScript at the end -->
 
 <script>
 /* -------------------------
    Caterpillar Game Script
-   - On-screen buttons below game (touch/mouse)
-   - WASD keyboard controls (click game to focus)
-   - Responsive and centered
-   ------------------------- */
-
+------------------------- */
 const play = document.getElementById('play');
 const head = document.getElementById('head');
 const winMsg = document.getElementById('win');
 const levelDisplay = document.getElementById('levelDisplay');
 
-let headPos = { x: 50, y: 50 };
-let speed = 8; // movement speed (lower is smoother)
+let headPos = {x:50,y:50};
+let speed = 8;
 let segments = [];
 let leaves = [];
-
 let level = 1;
 let maxLevel = 5;
 let leavesPerLevel = 5;
+let direction = null;
+let keyHeld = {};
 
-/* Movement state */
-let direction = null;    // 'up'|'down'|'left'|'right' or null
-let keyHeld = {};        // track held keys for smoother keyboard movement
+// Functions
+function startLevel(){
+  winMsg.style.display='none';
+  levelDisplay.textContent="Level: "+level;
+  headPos={x:50,y:50};
+  head.style.left='50px';
+  head.style.top='50px';
 
-/* Start / Reset level */
-function startLevel() {
-  winMsg.style.display = "none";
-  levelDisplay.textContent = "Level: " + level;
+  segments.forEach(s=>s.remove());
+  segments=[];
+  leaves.forEach(l=>l.remove());
+  leaves=[];
 
-  headPos = { x: 50, y: 50 };
-  head.style.left = "50px";
-  head.style.top = "50px";
-
-  segments.forEach(s => s.remove());
-  segments = [];
-
-  leaves.forEach(l => l.remove());
-  leaves = [];
-
-  const totalLeaves = leavesPerLevel + (level - 1) * 2;
-  for (let i = 0; i < totalLeaves; i++) {
-    const leaf = document.createElement('div');
-    leaf.className = 'leaf';
-    leaf.style.left = Math.random() * (play.clientWidth - 30) + 'px';
-    leaf.style.top = Math.random() * (play.clientHeight - 30) + 'px';
+  const totalLeaves=leavesPerLevel+(level-1)*2;
+  for(let i=0;i<totalLeaves;i++){
+    const leaf=document.createElement('div');
+    leaf.className='leaf';
+    leaf.style.left=Math.random()*(play.clientWidth-30)+'px';
+    leaf.style.top=Math.random()*(play.clientHeight-30)+'px';
     play.appendChild(leaf);
     leaves.push(leaf);
   }
 }
 
-/* Add segment behind caterpillar */
-function addSegment() {
-  const seg = document.createElement('div');
-  seg.className = 'segment';
-  seg.style.left = headPos.x + 'px';
-  seg.style.top = headPos.y + 'px';
+function addSegment(){
+  const seg=document.createElement('div');
+  seg.className='segment';
+  seg.style.left=headPos.x+'px';
+  seg.style.top=headPos.y+'px';
   play.appendChild(seg);
   segments.push(seg);
 }
 
-/* Movement functions */
-function applyDirection() {
-  // If keyboard keys are held, priority to keyboard composite
-  if (keyHeld['w'] || keyHeld['ArrowUp']) direction = 'up';
-  else if (keyHeld['s'] || keyHeld['ArrowDown']) direction = 'down';
-  else if (keyHeld['a'] || keyHeld['ArrowLeft']) direction = 'left';
-  else if (keyHeld['d'] || keyHeld['ArrowRight']) direction = 'right';
-  // else keep direction from touch buttons (set by events)
+function applyDirection(){
+  if(keyHeld['w']||keyHeld['ArrowUp']) direction='up';
+  else if(keyHeld['s']||keyHeld['ArrowDown']) direction='down';
+  else if(keyHeld['a']||keyHeld['ArrowLeft']) direction='left';
+  else if(keyHeld['d']||keyHeld['ArrowRight']) direction='right';
 }
 
-function moveOnce(dir) {
-  if (!dir) return;
-  if (dir === 'up') headPos.y -= speed;
-  if (dir === 'down') headPos.y += speed;
-  if (dir === 'left') headPos.x -= speed;
-  if (dir === 'right') headPos.x += speed;
+function moveOnce(dir){
+  if(!dir) return;
+  if(dir==='up') headPos.y-=speed;
+  if(dir==='down') headPos.y+=speed;
+  if(dir==='left') headPos.x-=speed;
+  if(dir==='right') headPos.x+=speed;
 
-  // clamp to play area
-  headPos.x = Math.max(0, Math.min(play.clientWidth - 40, headPos.x));
-  headPos.y = Math.max(0, Math.min(play.clientHeight - 40, headPos.y));
+  headPos.x=Math.max(0,Math.min(play.clientWidth-40,headPos.x));
+  headPos.y=Math.max(0,Math.min(play.clientHeight-40,headPos.y));
 }
 
-/* Update loop */
-function update() {
+function update(){
   applyDirection();
   moveOnce(direction);
 
-  head.style.left = headPos.x + 'px';
-  head.style.top = headPos.y + 'px';
+  head.style.left=headPos.x+'px';
+  head.style.top=headPos.y+'px';
 
-  // update segments
-  let px = headPos.x, py = headPos.y;
-  segments.forEach(seg => {
-    const sx = parseFloat(seg.style.left);
-    const sy = parseFloat(seg.style.top);
-
-    seg.style.left = sx + (px - sx) * 0.18 + 'px';
-    seg.style.top = sy + (py - sy) * 0.18 + 'px';
-
-    px = sx;
-    py = sy;
+  let px=headPos.x,py=headPos.y;
+  segments.forEach(seg=>{
+    const sx=parseFloat(seg.style.left);
+    const sy=parseFloat(seg.style.top);
+    seg.style.left=sx+(px-sx)*0.18+'px';
+    seg.style.top=sy+(py-sy)*0.18+'px';
+    px=sx;
+    py=sy;
   });
 
-  // collisions with leaves
-  leaves.forEach((leaf, idx) => {
-    if (!leaf) return;
-    if (Math.abs(leaf.offsetLeft - headPos.x) < 35 &&
-        Math.abs(leaf.offsetTop - headPos.y) < 35) {
-
+  leaves.forEach((leaf,idx)=>{
+    if(!leaf) return;
+    if(Math.abs(leaf.offsetLeft-headPos.x)<35 &&
+       Math.abs(leaf.offsetTop-headPos.y)<35){
       leaf.remove();
-      leaves.splice(idx, 1);
+      leaves.splice(idx,1);
       addSegment();
-
-      if (leaves.length === 0) {
-        if (level < maxLevel) {
-          winMsg.textContent = `Level ${level} Complete! Next level...`;
-          winMsg.style.display = "block";
+      if(leaves.length===0){
+        if(level<maxLevel){
+          winMsg.textContent=`Level ${level} Complete! Next level...`;
+          winMsg.style.display="block";
           level++;
-          setTimeout(startLevel, 1200);
+          setTimeout(startLevel,1200);
         } else {
-          winMsg.textContent = "🏆 Game Completed! Your Caterpillar is a Legend!";
-          winMsg.style.display = "block";
+          winMsg.textContent="🏆 Game Completed! Your Caterpillar is a Legend!";
+          winMsg.style.display="block";
         }
       }
     }
@@ -577,91 +543,56 @@ function update() {
   requestAnimationFrame(update);
 }
 
-/* -------------------------
-   Keyboard controls (WASD + arrows)
-   - Only active when play element is focused
-   ------------------------- */
-play.addEventListener('click', (e) => {
-  play.focus();             // enable keyboard control
-});
-document.addEventListener('click', (e) => {
-  // if clicked outside the play area, blur to avoid hijacking page keys
-  if (!play.contains(e.target)) {
+// Keyboard and touch controls
+play.addEventListener('click',()=>play.focus());
+document.addEventListener('click',e=>{
+  if(!play.contains(e.target)){
     play.blur();
-    keyHeld = {};
-    direction = null;
+    keyHeld={};
+    direction=null;
   }
 });
 
-// keydown: register held keys when play has focus
-document.addEventListener('keydown', (e) => {
-  if (document.activeElement !== play) return; // ignore if not focused
-
-  const k = e.key;
-  if (['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(k)) {
-    e.preventDefault(); // prevent page from scrolling while focused
-    keyHeld[k] = true;
+document.addEventListener('keydown',e=>{
+  if(document.activeElement!==play) return;
+  const k=e.key;
+  if(['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(k)){
+    e.preventDefault();
+    keyHeld[k]=true;
   }
 });
 
-// keyup: release held keys
-document.addEventListener('keyup', (e) => {
-  const k = e.key;
-  if (keyHeld[k]) delete keyHeld[k];
-  // if no keys are held, stop direction (for keyboard)
-  if (!Object.keys(keyHeld).length) {
-    direction = null;
-  }
+document.addEventListener('keyup',e=>{
+  const k=e.key;
+  if(keyHeld[k]) delete keyHeld[k];
+  if(!Object.keys(keyHeld).length) direction=null;
 });
 
-/* -------------------------
-   On-screen buttons (touch + mouse)
-   Buttons are below the game box. Press-and-hold to keep moving.
-   ------------------------- */
-const dpad = document.getElementById('dpad');
-let activeBtn = null;
-
-function setDirection(dir) {
-  direction = dir;
-}
-function clearDirectionIfMatches(dir) {
-  if (direction === dir) direction = null;
-}
-
-/* helper to bind events to each button */
-dpad.querySelectorAll('.btn[data-dir]').forEach(btn => {
-  const dir = btn.dataset.dir;
-
-  // start press (touch or mouse)
-  const start = (ev) => {
+const dpad=document.getElementById('dpad');
+dpad.querySelectorAll('.btn[data-dir]').forEach(btn=>{
+  const dir=btn.dataset.dir;
+  const start=ev=>{
     ev.preventDefault();
-    activeBtn = dir;
-    setDirection(dir);
+    direction=dir;
   };
-  // end press
-  const end = (ev) => {
+  const end=ev=>{
     ev.preventDefault();
-    activeBtn = null;
-    // stop movement if no keyboard keys held
-    if (!Object.keys(keyHeld).length) {
-      direction = null;
-    }
+    direction=null;
   };
-
-  btn.addEventListener('touchstart', start, {passive:false});
-  btn.addEventListener('touchend', end);
-  btn.addEventListener('touchcancel', end);
-  btn.addEventListener('mousedown', start);
-  document.addEventListener('mouseup', end);
+  btn.addEventListener('touchstart',start,{passive:false});
+  btn.addEventListener('touchend',end);
+  btn.addEventListener('touchcancel',end);
+  btn.addEventListener('mousedown',start);
+  document.addEventListener('mouseup',end);
 });
 
-/* Prevent double-tap zoom on mobile when tapping controls */
-dpad.addEventListener('touchstart', (e) => { e.preventDefault(); }, {passive:false});
-
-/* Initialize level and start loop */
 startLevel();
 update();
-
 </script>
+
+<footer>
+  <div class="container">© 2025 Haneef Olajobi. All rights reserved.</div>
+</footer>
+
 </body>
 </html>
