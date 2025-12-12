@@ -220,23 +220,177 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
 .btn.right { grid-area: right; }
 .btn.center { grid-area: center; width:56px; height:56px; background:#e6ffe6; border:1px solid var(--accent-2); font-size:14px; }
 
-@media(max-width:540px){
-  .dpad { grid-template-columns:56px 56px 56px; gap:10px; }
-  .dpad .btn { width:56px; height:56px; font-size:18px; }
-  .play { height:340px; }
-}
-
-/* help text */
-.game-hint {
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
-  margin-top:8px;
-}
-
 /* Social icons hover */
 .icon-links a svg path{transition:fill 0.2s;}
 .icon-links a:hover svg path{fill:var(--accent);}
+
+.hero-buttons {
+  margin-top:18px; 
+  display:flex; 
+  gap:12px;
+}
+
+.hero-buttons a {
+  padding:10px 14px;
+  border-radius:8px;
+  font-weight:700;
+  text-align:center;
+}
+
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+  margin-top:14px;
+}
+
+/* Mobile Responsiveness */
+@media(max-width:768px){
+  .container { padding: 16px; }
+  
+  /* Header Navigation */
+  .nav { padding: 10px 0; }
+  .logo { width: 42px; height: 42px; font-size: 18px; }
+  .brand > div > div:first-child { font-size: 16px; }
+  .brand > div > div:last-child { font-size: 11px; }
+  
+  nav ul { gap: 12px; }
+  nav a { font-size: 14px; }
+  
+  /* Hero Section - Stack vertically */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 24px 0;
+    gap: 20px;
+  }
+  
+  .intro h1 { font-size: 28px; }
+  .intro h1 span { font-size: 32px !important; }
+  .intro p { font-size: 14px; }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .hero-buttons a {
+    width: 100%;
+    padding: 12px 14px;
+  }
+  
+  /* Profile Card */
+  .profile { 
+    order: -1; /* Show profile picture first on mobile */
+    padding: 14px;
+  }
+  .avatar { height: 250px; }
+  
+  /* Grid - Single column on mobile */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  /* Cards */
+  section.card { padding: 14px; }
+  .card h3 { font-size: 20px; }
+  .card h4 { font-size: 16px; }
+  
+  /* Projects Grid */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  /* Game Area */
+  .play { 
+    height: 340px;
+    max-width: 100%;
+  }
+  
+  .level-label {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+  
+  .win {
+    padding: 12px 18px;
+    font-size: 16px;
+    max-width: 90%;
+  }
+  
+  /* D-pad controls */
+  .dpad { 
+    grid-template-columns: 56px 56px 56px; 
+    gap: 10px; 
+  }
+  .dpad .btn { 
+    width: 56px; 
+    height: 56px; 
+    font-size: 18px; 
+  }
+  .btn.center { 
+    width: 48px; 
+    height: 48px; 
+    font-size: 12px; 
+  }
+  
+  .game-hint {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+  
+  /* Contact Icons */
+  .icon-links {
+    justify-content: center !important;
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: 24px;
+    padding: 20px 0;
+    font-size: 12px;
+  }
+}
+
+@media(max-width:480px){
+  .container { padding: 12px; }
+  
+  .intro h1 { font-size: 24px; }
+  .intro h1 span { font-size: 28px !important; }
+  
+  nav ul { gap: 8px; }
+  nav a { font-size: 13px; }
+  
+  .avatar { height: 200px; }
+  
+  .play { height: 300px; }
+  
+  .dpad { 
+    grid-template-columns: 48px 48px 48px; 
+    gap: 8px; 
+  }
+  .dpad .btn { 
+    width: 48px; 
+    height: 48px; 
+    font-size: 16px; 
+  }
+  .btn.center { 
+    width: 40px; 
+    height: 40px; 
+    font-size: 11px; 
+  }
+  
+  .caterpillar-head, .segment {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .leaf {
+    width: 24px;
+    height: 24px;
+  }
+}
 </style>
 </head>
 <body>
@@ -270,11 +424,11 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
     <h1>Hi, I'm <span style="font-size:44px">Haneef</span></h1>
     <p class="type"><span id="typed">Aspiring Cloud Engineer</span></p>
     <p>I am an aspiring cloud engineer with experience in QA testing, software development and graphic design.</p>
-    <div style="margin-top:18px; display:flex; gap:12px">
-      <a href="#work" style="background:var(--accent);padding:10px 14px;border-radius:8px;color:#fff;font-weight:700">
+    <div class="hero-buttons">
+      <a href="#work" style="background:var(--accent);color:#fff;">
         See my work
       </a>
-      <a href="Haneef_Olajobi_Resume.pdf" download style="background:#555;padding:10px 14px;border-radius:8px;color:#fff;font-weight:700">
+      <a href="Haneef_Olajobi_Resume.pdf" download style="background:#555;color:#fff;">
         Resume
       </a>
     </div>
@@ -333,7 +487,7 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
 <!-- Projects / Work -->
 <section id="work" class="card" style="margin-top:18px">
   <h3>Projects / Work</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px">
+  <div class="projects-grid">
     <div class="card">
       <h4>Automatic Backup System</h4>
       <strong>Tools/Services:</strong> Python, AWS S3, Cron Jobs<br>
@@ -461,41 +615,4 @@ function update(){
   segments.forEach(seg=>{
     const sx=parseFloat(seg.style.left),sy=parseFloat(seg.style.top);
     seg.style.left=sx+(px-sx)*0.18+'px';
-    seg.style.top=sy+(py-sy)*0.18+'px';
-    px=sx; py=sy;
-  });
-  leaves.forEach((leaf,idx)=>{
-    if(!leaf)return;
-    if(Math.abs(leaf.offsetLeft-headPos.x)<35 && Math.abs(leaf.offsetTop-headPos.y)<35){
-      leaf.remove(); leaves.splice(idx,1); addSegment();
-      if(leaves.length===0){
-        if(level<maxLevel){
-          winMsg.textContent=`Level ${level} Complete! Next level...`; winMsg.style.display='block';
-          level++; setTimeout(startLevel,1200);
-        } else { winMsg.textContent='🏆 Game Completed! Your Caterpillar is a Legend!'; winMsg.style.display='block'; }
-      }
-    }
-  });
-  requestAnimationFrame(update);
-}
-
-play.addEventListener('click',()=>{play.focus();});
-document.addEventListener('click',(e)=>{if(!play.contains(e.target)){play.blur(); keyHeld={}; direction=null;}});
-document.addEventListener('keydown',(e)=>{if(document.activeElement!==play)return; const k=e.key; if(['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(k)){e.preventDefault(); keyHeld[k]=true;}});
-document.addEventListener('keyup',(e)=>{const k=e.key; if(keyHeld[k])delete keyHeld[k]; if(!Object.keys(keyHeld).length)direction=null;});
-
-const dpad=document.getElementById('dpad');
-dpad.querySelectorAll('.btn[data-dir]').forEach(btn=>{
-  const dir=btn.dataset.dir;
-  const start=ev=>{ev.preventDefault(); direction=dir;}
-  const end=ev=>{ev.preventDefault(); if(!Object.keys(keyHeld).length)direction=null;}
-  btn.addEventListener('touchstart',start,{passive:false}); btn.addEventListener('touchend',end);
-  btn.addEventListener('touchcancel',end); btn.addEventListener('mousedown',start); document.addEventListener('mouseup',end);
-});
-dpad.addEventListener('touchstart',(e)=>{e.preventDefault();},{passive:false});
-
-startLevel();
-update();
-</script>
-</body>
-</html>
+    seg.style.top=sy+(py-sy)*0.18+'px
