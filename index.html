@@ -615,4 +615,41 @@ function update(){
   segments.forEach(seg=>{
     const sx=parseFloat(seg.style.left),sy=parseFloat(seg.style.top);
     seg.style.left=sx+(px-sx)*0.18+'px';
-    seg.style.top=sy+(py-sy)*0.18+'px
+    seg.style.top=sy+(py-sy)*0.18+'px';
+    px=sx; py=sy;
+  });
+  leaves.forEach((leaf,idx)=>{
+    if(!leaf)return;
+    if(Math.abs(leaf.offsetLeft-headPos.x)<35 && Math.abs(leaf.offsetTop-headPos.y)<35){
+      leaf.remove(); leaves.splice(idx,1); addSegment();
+      if(leaves.length===0){
+        if(level<maxLevel){
+          winMsg.textContent=`Level ${level} Complete! Next level...`; winMsg.style.display='block';
+          level++; setTimeout(startLevel,1200);
+        } else { winMsg.textContent='🏆 Game Completed! Your Caterpillar is a Legend!'; winMsg.style.display='block'; }
+      }
+    }
+  });
+  requestAnimationFrame(update);
+}
+
+play.addEventListener('click',()=>{play.focus();});
+document.addEventListener('click',(e)=>{if(!play.contains(e.target)){play.blur(); keyHeld={}; direction=null;}});
+document.addEventListener('keydown',(e)=>{if(document.activeElement!==play)return; const k=e.key; if(['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(k)){e.preventDefault(); keyHeld[k]=true;}});
+document.addEventListener('keyup',(e)=>{const k=e.key; if(keyHeld[k])delete keyHeld[k]; if(!Object.keys(keyHeld).length)direction=null;});
+
+const dpad=document.getElementById('dpad');
+dpad.querySelectorAll('.btn[data-dir]').forEach(btn=>{
+  const dir=btn.dataset.dir;
+  const start=ev=>{ev.preventDefault(); direction=dir;}
+  const end=ev=>{ev.preventDefault(); if(!Object.keys(keyHeld).length)direction=null;}
+  btn.addEventListener('touchstart',start,{passive:false}); btn.addEventListener('touchend',end);
+  btn.addEventListener('touchcancel',end); btn.addEventListener('mousedown',start); document.addEventListener('mouseup',end);
+});
+dpad.addEventListener('touchstart',(e)=>{e.preventDefault();},{passive:false});
+
+startLevel();
+update();
+</script>
+</body>
+</html>
