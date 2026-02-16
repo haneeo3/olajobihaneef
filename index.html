@@ -120,6 +120,55 @@ li{margin-bottom:6px}
 }
 .github-link:hover { opacity: 0.8; text-decoration: underline; }
 
+/* Medium Articles */
+.articles-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:16px;
+  margin-top:14px;
+}
+
+.article-card {
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  transition:0.3s;
+  border-left:4px solid var(--accent);
+}
+
+.article-card:hover {
+  box-shadow:0 6px 25px rgba(0,0,0,0.12);
+  transform:translateY(-2px);
+}
+
+.article-card h4 {
+  margin:0 0 8px 0;
+  font-size:16px;
+  line-height:1.4;
+}
+
+.article-card .date {
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+.read-more {
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  color:var(--accent);
+  font-weight:600;
+  font-size:14px;
+  margin-top:8px;
+  transition:0.2s;
+}
+
+.read-more:hover {
+  text-decoration:underline;
+}
+
 /* Footer */
 footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e5e5e5;text-align:center; font-size:14px;}
 
@@ -154,7 +203,10 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   border-radius:50%;
   background:#2e7d32;
   box-shadow:0 3px 6px rgba(0,0,0,0.14);
-  transition:0.1s linear;
+  transition:left 0.08s linear, top 0.08s linear;
+}
+.caterpillar-head {
+  background:linear-gradient(135deg, #388e3c, #2e7d32);
 }
 .caterpillar-head::before, .caterpillar-head::after {
   content:"";
@@ -164,17 +216,28 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   height:6px;
   border-radius:50%;
   background:#fff;
+  left:10px;
 }
-.caterpillar-head::after { left:20px; }
+.caterpillar-head::after { left:24px; }
+
+.segment {
+  background:linear-gradient(135deg, #4caf50, #388e3c);
+}
 
 .leaf {
   position:absolute;
   width:30px;
   height:30px;
   border-radius:50%;
-  background:#66bb6a;
+  background:linear-gradient(135deg, #81c784, #66bb6a);
   box-shadow:0 2px 4px rgba(0,0,0,0.12);
   transition:0.2s;
+  animation:leafPulse 2s infinite;
+}
+
+@keyframes leafPulse {
+  0%, 100% { transform:scale(1); }
+  50% { transform:scale(1.1); }
 }
 
 /* messages */
@@ -192,6 +255,7 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   display:none;
   z-index:10;
   text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 .level-label {
   position:absolute;
@@ -202,14 +266,28 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   padding:6px 10px;
   border-radius:6px;
   border:1px solid var(--accent-2);
+  font-weight:600;
+}
+
+.score-label {
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:18px;
+  background:#fff;
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid var(--accent-2);
+  font-weight:600;
 }
 
 /* Controls container (buttons below the game) */
 .controls {
   display:flex;
   justify-content:center;
+  align-items:center;
   margin-top:14px;
-  gap:18px;
+  gap:24px;
   user-select:none;
 }
 
@@ -220,34 +298,58 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
     ". up ."
     "left center right"
     ". down .";
-  grid-template-columns:64px 64px 64px;
-  gap:12px;
+  grid-template-columns:70px 70px 70px;
+  gap:10px;
   align-items:center;
   justify-items:center;
 }
 .dpad .btn {
-  width:64px;
-  height:64px;
+  width:70px;
+  height:70px;
   border-radius:50%;
   background:linear-gradient(180deg,#ffffff,#f1f1f1);
-  border:1px solid #ccc;
+  border:2px solid #ccc;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:700;
-  font-size:20px;
+  font-size:24px;
   box-shadow:0 6px 14px rgba(0,0,0,0.08);
   cursor:pointer;
   touch-action: manipulation;
   transition:0.15s;
+  user-select:none;
 }
-.dpad .btn:active { transform:translateY(2px); box-shadow:0 3px 8px rgba(0,0,0,0.12); }
+.dpad .btn:active { 
+  transform:translateY(3px); 
+  box-shadow:0 2px 6px rgba(0,0,0,0.12);
+  background:linear-gradient(180deg,#f1f1f1,#e8e8e8);
+}
 
 .btn.up    { grid-area: up; }
 .btn.down  { grid-area: down; }
 .btn.left  { grid-area: left; }
 .btn.right { grid-area: right; }
-.btn.center { grid-area: center; width:56px; height:56px; background:#e6ffe6; border:1px solid var(--accent-2); font-size:14px; }
+.btn.center { 
+  grid-area: center; 
+  width:60px; 
+  height:60px; 
+  background:linear-gradient(180deg, #81c784, #66bb6a);
+  border:2px solid var(--accent-2); 
+  font-size:14px;
+  color:#fff;
+  font-weight:800;
+}
+.btn.center:active {
+  background:linear-gradient(180deg, #66bb6a, #4caf50);
+}
+
+.game-hint {
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  margin-top:12px;
+}
 
 /* Social icons hover */
 .icon-links a svg path{transition:fill 0.2s;}
@@ -277,6 +379,7 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
 @media(max-width:768px){
   .container { padding: 16px; }
   .nav { padding: 10px 0; }
+  nav ul { gap: 12px; font-size: 14px; }
   .logo { width: 42px; height: 42px; font-size: 18px; }
   .hero { grid-template-columns: 1fr; padding: 24px 0; gap: 20px; }
   .intro h1 { font-size: 28px; }
@@ -286,7 +389,11 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   .avatar { height: 250px; }
   .grid { grid-template-columns: 1fr; gap: 14px; }
   .projects-grid { grid-template-columns: 1fr; gap: 12px; }
+  .articles-grid { grid-template-columns: 1fr; gap: 12px; }
   .play { height: 340px; max-width: 100%; }
+  .dpad { grid-template-columns: 60px 60px 60px; gap: 8px; }
+  .dpad .btn { width: 60px; height: 60px; font-size: 20px; }
+  .btn.center { width: 52px; height: 52px; }
 }
 </style>
 </head>
@@ -306,6 +413,7 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
+        <li><a href="#articles">Articles</a></li>
         <li><a href="#games">Games</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -341,13 +449,13 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
 <section id="about" class="card">
   <h3>About Me</h3>
   <p style="color: var(--muted); margin-bottom: 1rem;">
-    I’m <strong>Olajobi Haneef</strong>, a Cloud Engineer from Nigeria with a passion for building scalable, automated, and cost-efficient cloud solutions. My expertise spans <strong>AWS, Python, Terraform, and AI</strong>, combined with strong skills in problem-solving, creative design, leadership, and communication.
+    I'm <strong>Olajobi Haneef</strong>, a Cloud Engineer from Nigeria with a passion for building scalable, automated, and cost-efficient cloud solutions. My expertise spans <strong>AWS, Python, Terraform, and AI</strong>, combined with strong skills in problem-solving, creative design, leadership, and communication.
   </p>
   <p style="color: var(--muted); margin-bottom: 1rem;">
     I have <strong>3 years of experience as a freelance frontend developer</strong>, and during my 2025 internship, I served as a <strong>Technical Lead</strong>, guiding projects and mentoring teammates. These experiences gave me a solid foundation in both development and leadership, which I now bring to the cloud space.
   </p>
   <p style="color: var(--muted); margin-bottom: 1rem;">
-    Currently, I’m working on <strong>Multi-Environment-Enterprise-Infrastructure</strong>, a project that focuses on designing and deploying fully automated infrastructures across development, staging, and production environments using Terraform.
+    Currently, I'm working on <strong>Multi-Environment-Enterprise-Infrastructure</strong>, a project that focuses on designing and deploying fully automated infrastructures across development, staging, and production environments using Terraform.
   </p>
 </section>
 
@@ -390,7 +498,7 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
       <h4>Automatic Backup System</h4>
       <div class="skill-tag">Python, AWS S3, Cron Jobs</div>
       <p style="color:var(--muted); margin-top:8px;">Automates daily data backups to Amazon S3 with logging for easy monitoring.</p>
-      <a href="https://github.com/haneeo3/your-repo-name" target="_blank" class="github-link">
+      <a href="https://github.com/haneeo3/Automatic-Backup-System" target="_blank" class="github-link">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
         View on GitHub
       </a>
@@ -400,7 +508,7 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
       <h4>Cloud Cost Calculator</h4>
       <div class="skill-tag">Python, AWS Boto3, Lambda, SNS</div>
       <p style="color:var(--muted); margin-top:8px;">Monitors AWS spending and sends notifications when usage exceeds thresholds.</p>
-      <a href="https://github.com/haneeo3/your-repo-name" target="_blank" class="github-link">
+      <a href="https://github.com/haneeo3/Cloud-Cost-Calculator" target="_blank" class="github-link">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
         View on GitHub
       </a>
@@ -410,7 +518,7 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
       <h4>AWS Static Website</h4>
       <div class="skill-tag">S3, CloudFront, HTML/CSS</div>
       <p style="color:var(--muted); margin-top:8px;">Responsive portfolio hosted on S3 with global CDN delivery via CloudFront.</p>
-      <a href="https://github.com/haneeo3/your-repo-name" target="_blank" class="github-link">
+      <a href="https://github.com/haneeo3/aws-static-website" target="_blank" class="github-link">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
         View on GitHub
       </a>
@@ -420,17 +528,37 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
       <h4>Website Uptime Monitor</h4>
       <div class="skill-tag">Python, Lambda, SNS, CloudWatch</div>
       <p style="color:var(--muted); margin-top:8px;">Monitors website uptime and sends real-time alerts when downtime occurs.</p>
-      <a href="https://github.com/haneeo3/your-repo-name" target="_blank" class="github-link">
+      <a href="https://github.com/haneeo3/Website-Uptime-Monitor" target="_blank" class="github-link">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
         View on GitHub
       </a>
     </div>
 
     <div class="card">
-      <h4>AI Inquiry Manager</h4>
-      <div class="skill-tag">Python, OpenAI, Flask, AWS S3</div>
-      <p style="color:var(--muted); margin-top:8px;">Automates AI-powered responses to customer inquiries and stores logs in S3.</p>
-      <a href="https://github.com/haneeo3/your-repo-name" target="_blank" class="github-link">
+      <h4>Customer Inquiry Manager</h4>
+      <div class="skill-tag">Python, AWS Bedrock, RDS, SES</div>
+      <p style="color:var(--muted); margin-top:8px;">AI-powered system that handles customer messages with sentiment analysis and automated responses.</p>
+      <a href="https://github.com/haneeo3/Customer-Inquiry-Manager" target="_blank" class="github-link">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="card">
+      <h4>Serverless Blog Website</h4>
+      <div class="skill-tag">Lambda, API Gateway, DynamoDB, S3</div>
+      <p style="color:var(--muted); margin-top:8px;">Fully serverless blog with create, read, update, delete capabilities and image uploads.</p>
+      <a href="https://github.com/haneeo3/serverless-blog-website" target="_blank" class="github-link">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="card">
+      <h4>S3 Backup Automation Script</h4>
+      <div class="skill-tag">Bash, AWS CLI, S3</div>
+      <p style="color:var(--muted); margin-top:8px;">Lightweight automation tool with timestamped backups and comprehensive logging.</p>
+      <a href="https://github.com/haneeo3/S3-Backup-Automation-Script" target="_blank" class="github-link">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
         View on GitHub
       </a>
@@ -438,12 +566,60 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
   </div>
 </section>
 
+<section id="articles" class="card" style="margin-top:18px">
+  <h3>Articles & Writing</h3>
+  <p style="color:var(--muted); margin-bottom:14px;">Technical articles and insights on cloud computing, DevOps, and career development.</p>
+  
+  <div class="articles-grid">
+    <div class="article-card">
+      <h4>How to Build Your First Web Server Monitoring System</h4>
+      <div class="date">A Beginner's Guide to Linux System Monitoring</div>
+      <a href="https://medium.com/@olajobihaneef/how-to-build-your-first-web-server-monitoring-system-a-beginners-guide-to-linux-system-d1a7c26ba6d7" target="_blank" class="read-more">
+        Read on Medium →
+      </a>
+    </div>
+
+    <div class="article-card">
+      <h4>Everyone's Installing MoltBot. Nobody's Asking the Obvious Question.</h4>
+      <div class="date">February 2026</div>
+      <a href="https://medium.com/@olajobihaneef" target="_blank" class="read-more">
+        Read on Medium →
+      </a>
+    </div>
+
+    <div class="article-card">
+      <h4>The Job Market in 2026 is Cooked if You Don't Know Cloud Services</h4>
+      <div class="date">January 2026</div>
+      <a href="https://medium.com/@olajobihaneef" target="_blank" class="read-more">
+        Read on Medium →
+      </a>
+    </div>
+
+    <div class="article-card">
+      <h4>If I Had to Learn Cloud Computing in 2026… I'd Do It in 90 Days Using AI</h4>
+      <div class="date">December 2025</div>
+      <a href="https://medium.com/@olajobihaneef" target="_blank" class="read-more">
+        Read on Medium →
+      </a>
+    </div>
+
+    <div class="article-card">
+      <h4>Building a Serverless Video Streaming Platform with InfraCodeBase</h4>
+      <div class="date">December 2025</div>
+      <a href="https://medium.com/@olajobihaneef/building-a-serverless-video-streaming-platform-with-infracodebase-ee319cd1be09" target="_blank" class="read-more">
+        Read on Medium →
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="games" class="card" style="margin-top:18px">
   <h3>Games / Fun Projects</h3>
-  <p style="color:var(--muted)">Play my Caterpillar Game directly here!</p>
+  <p style="color:var(--muted)">Play my Caterpillar Game! Collect all the leaves to complete each level.</p>
   <div class="game-wrapper">
-    <div class="play" id="play" tabindex="0" title="Click to focus and use WASD keys">
+    <div class="play" id="play" tabindex="0" title="Click to focus and use arrow keys or WASD">
       <div class="level-label" id="levelDisplay">Level: 1</div>
+      <div class="score-label" id="scoreDisplay">Score: 0</div>
       <div class="caterpillar-head" id="head"></div>
       <div class="win" id="win"></div>
     </div>
@@ -452,20 +628,22 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
     <div class="dpad" id="dpad">
       <div class="btn up" data-dir="up">▲</div>
       <div class="btn left" data-dir="left">◀</div>
-      <div class="btn center">Play</div>
+      <div class="btn center" id="startBtn">START</div>
       <div class="btn right" data-dir="right">▶</div>
       <div class="btn down" data-dir="down">▼</div>
     </div>
   </div>
-  <div class="game-hint">Tap the buttons (mobile) or click the game then press WASD (desktop).</div>
+  <div class="game-hint">Mobile: Tap direction buttons | Desktop: Click game area then use Arrow keys or WASD</div>
 </section>
 
 <section id="contact" class="card" style="margin-top:18px">
   <h3>Contact</h3>
+  <p style="color:var(--muted); text-align:center; margin-bottom:14px;">Let's connect! Feel free to reach out through any of these platforms.</p>
   <div class="icon-links" style="display:flex;gap:20px;justify-content:center;align-items:center;margin-top:10px;">
     <a href="mailto:olajobihaneef@gmail.com"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
     <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/></svg></a>
     <a href="https://github.com/haneeo3" target="_blank"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+    <a href="https://medium.com/@olajobihaneef" target="_blank" title="Medium Profile"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
   </div>
 </section>
 
@@ -476,14 +654,16 @@ footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e
 </footer>
 
 <script>
-// Caterpillar Game JS
+// Caterpillar Game JS - Enhanced Version
 const play = document.getElementById('play');
 const head = document.getElementById('head');
 const winMsg = document.getElementById('win');
 const levelDisplay = document.getElementById('levelDisplay');
+const scoreDisplay = document.getElementById('scoreDisplay');
+const startBtn = document.getElementById('startBtn');
 
-let headPos = { x:50, y:50 };
-let speed = 8;
+let headPos = { x:280, y:180 };
+let speed = 10;
 let segments = [];
 let leaves = [];
 let level = 1;
@@ -491,23 +671,46 @@ let maxLevel = 5;
 let leavesPerLevel = 5;
 let direction = null;
 let keyHeld = {};
+let gameStarted = false;
+let score = 0;
+let gameInterval = null;
 
 function startLevel(){
   winMsg.style.display = 'none';
   levelDisplay.textContent = 'Level: ' + level;
-  headPos={x:50,y:50}; head.style.left='50px'; head.style.top='50px';
-  segments.forEach(s=>s.remove()); segments=[];
-  leaves.forEach(l=>l.remove()); leaves=[];
+  scoreDisplay.textContent = 'Score: ' + score;
+  
+  const playWidth = play.clientWidth;
+  const playHeight = play.clientHeight;
+  
+  headPos={x:playWidth/2-20, y:playHeight/2-20}; 
+  head.style.left=headPos.x+'px'; 
+  head.style.top=headPos.y+'px';
+  
+  segments.forEach(s=>s.remove()); 
+  segments=[];
+  leaves.forEach(l=>l.remove()); 
+  leaves=[];
+  
   const totalLeaves=leavesPerLevel+(level-1)*2;
   for(let i=0;i<totalLeaves;i++){
-    const leaf=document.createElement('div'); leaf.className='leaf';
-    leaf.style.left=Math.random()*(play.clientWidth-30)+'px';
-    leaf.style.top=Math.random()*(play.clientHeight-30)+'px';
-    play.appendChild(leaf); leaves.push(leaf);
+    const leaf=document.createElement('div'); 
+    leaf.className='leaf';
+    leaf.style.left=Math.random()*(playWidth-30)+'px';
+    leaf.style.top=Math.random()*(playHeight-30)+'px';
+    play.appendChild(leaf); 
+    leaves.push(leaf);
   }
 }
 
-function addSegment(){const seg=document.createElement('div'); seg.className='segment'; seg.style.left=headPos.x+'px'; seg.style.top=headPos.y+'px'; play.appendChild(seg); segments.push(seg);}
+function addSegment(){
+  const seg=document.createElement('div'); 
+  seg.className='segment'; 
+  seg.style.left=headPos.x+'px'; 
+  seg.style.top=headPos.y+'px'; 
+  play.appendChild(seg); 
+  segments.push(seg);
+}
 
 function applyDirection(){
   if(keyHeld['w']||keyHeld['ArrowUp'])direction='up';
@@ -522,14 +725,22 @@ function moveOnce(dir){
   if(dir==='down')headPos.y+=speed;
   if(dir==='left')headPos.x-=speed;
   if(dir==='right')headPos.x+=speed;
-  headPos.x=Math.max(0,Math.min(play.clientWidth-40,headPos.x));
-  headPos.y=Math.max(0,Math.min(play.clientHeight-40,headPos.y));
+  
+  const playWidth = play.clientWidth;
+  const playHeight = play.clientHeight;
+  
+  headPos.x=Math.max(0,Math.min(playWidth-40,headPos.x));
+  headPos.y=Math.max(0,Math.min(playHeight-40,headPos.y));
 }
 
 function update(){
+  if(!gameStarted) return;
+  
   applyDirection();
   moveOnce(direction);
-  head.style.left=headPos.x+'px'; head.style.top=headPos.y+'px';
+  head.style.left=headPos.x+'px'; 
+  head.style.top=headPos.y+'px';
+  
   let px=headPos.x,py=headPos.y;
   segments.forEach(seg=>{
     const sx=parseFloat(seg.style.left),sy=parseFloat(seg.style.top);
@@ -537,43 +748,134 @@ function update(){
     seg.style.top=sy+(py-sy)*0.18+'px';
     px=sx; py=sy;
   });
+  
   leaves.forEach((leaf,idx)=>{
     if(!leaf)return;
-    if(Math.abs(leaf.offsetLeft-headPos.x)<35 && Math.abs(leaf.offsetTop-headPos.y)<35){
-      leaf.remove(); leaves.splice(idx,1); addSegment();
+    const dx = Math.abs(leaf.offsetLeft-headPos.x);
+    const dy = Math.abs(leaf.offsetTop-headPos.y);
+    
+    if(dx<35 && dy<35){
+      leaf.remove(); 
+      leaves.splice(idx,1); 
+      addSegment();
+      score += 10;
+      scoreDisplay.textContent = 'Score: ' + score;
+      
       if(leaves.length===0){
         if(level<maxLevel){
-          winMsg.textContent=`Level ${level} Complete! Next level...`; winMsg.style.display='block';
-          level++; setTimeout(startLevel,1200);
-        } else { winMsg.textContent='🏆 Game Completed! Your Caterpillar is a Legend!'; winMsg.style.display='block'; }
+          winMsg.textContent=`🎉 Level ${level} Complete! Get ready for Level ${level+1}...`; 
+          winMsg.style.display='block';
+          score += 50; // Bonus for completing level
+          level++; 
+          setTimeout(startLevel,1500);
+        } else { 
+          winMsg.textContent='🏆 Amazing! You Completed All Levels! Final Score: ' + score; 
+          winMsg.style.display='block';
+          gameStarted = false;
+          startBtn.textContent = 'RESTART';
+        }
       }
     }
   });
-  requestAnimationFrame(update);
 }
 
+function gameLoop(){
+  update();
+  gameInterval = requestAnimationFrame(gameLoop);
+}
+
+function startGame(){
+  if(!gameStarted){
+    gameStarted = true;
+    startBtn.textContent = 'PAUSE';
+    if(winMsg.style.display === 'block' && level > maxLevel){
+      // Reset game
+      level = 1;
+      score = 0;
+      segments.forEach(s=>s.remove());
+      segments = [];
+    }
+    startLevel();
+    gameLoop();
+  } else {
+    gameStarted = false;
+    startBtn.textContent = 'RESUME';
+    if(gameInterval){
+      cancelAnimationFrame(gameInterval);
+    }
+  }
+}
+
+startBtn.addEventListener('click', startGame);
+startBtn.addEventListener('touchstart', (e)=>{e.preventDefault(); startGame();}, {passive:false});
+
 play.addEventListener('click',()=>{play.focus();});
-document.addEventListener('click',(e)=>{if(!play.contains(e.target)){play.blur(); keyHeld={}; direction=null;}});
-document.addEventListener('keydown',(e)=>{if(document.activeElement!==play)return; const k=e.key; if(['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(k)){e.preventDefault(); keyHeld[k]=true;}});
-document.addEventListener('keyup',(e)=>{const k=e.key; if(keyHeld[k])delete keyHeld[k]; if(!Object.keys(keyHeld).length)direction=null;});
+document.addEventListener('click',(e)=>{
+  if(!play.contains(e.target) && !e.target.classList.contains('btn')){
+    play.blur(); 
+    keyHeld={}; 
+  }
+});
+
+document.addEventListener('keydown',(e)=>{
+  if(document.activeElement!==play)return; 
+  const k=e.key; 
+  if(['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(k)){
+    e.preventDefault(); 
+    keyHeld[k]=true;
+    if(!gameStarted){
+      startGame();
+    }
+  }
+});
+
+document.addEventListener('keyup',(e)=>{
+  const k=e.key; 
+  if(keyHeld[k])delete keyHeld[k]; 
+});
 
 const dpad=document.getElementById('dpad');
+let activeButton = null;
+
 dpad.querySelectorAll('.btn[data-dir]').forEach(btn=>{
   const dir=btn.dataset.dir;
-  const start=ev=>{ev.preventDefault(); direction=dir;}
-  const end=ev=>{ev.preventDefault(); if(!Object.keys(keyHeld).length)direction=null;}
-  btn.addEventListener('touchstart',start,{passive:false}); btn.addEventListener('touchend',end);
-  btn.addEventListener('touchcancel',end); btn.addEventListener('mousedown',start); document.addEventListener('mouseup',end);
+  
+  const start=ev=>{
+    ev.preventDefault(); 
+    direction=dir;
+    activeButton = dir;
+    if(!gameStarted){
+      startGame();
+    }
+  }
+  
+  const end=ev=>{
+    ev.preventDefault(); 
+    if(activeButton === dir){
+      direction=null;
+      activeButton = null;
+    }
+  }
+  
+  btn.addEventListener('touchstart',start,{passive:false}); 
+  btn.addEventListener('touchend',end, {passive:false});
+  btn.addEventListener('touchcancel',end, {passive:false}); 
+  btn.addEventListener('mousedown',start); 
+  btn.addEventListener('mouseup',end);
 });
+
+document.addEventListener('mouseup', ()=>{
+  if(activeButton){
+    direction = null;
+    activeButton = null;
+  }
+});
+
 dpad.addEventListener('touchstart',(e)=>{e.preventDefault();},{passive:false});
 
+// Initialize but don't start
 startLevel();
-update();
 </script>
-  <script src="https://platform.linkedin.com/badges/js/profile.js"
-        async
-        defer
-        type="text/javascript">
-</script>
+
 </body>
 </html>
