@@ -1,881 +1,1537 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Haneef Olajobi</title>
-
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-
-<meta name="description" content="Haneef Olajobi is a Cloud Engineer with skills in AWS, DevOps, QA Testing, Linux, and Web Development. Explore projects, articles, and cloud journey.">
-<meta name="keywords" content="Haneef, Olajobi, Haneef Olajobi, Cloud Engineer, Cloud Engineer, AWS, DevOps, Nigeria Cloud Engineer, Cloud Portfolio, Cloud Projects">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Haneef Olajobi — Cloud Engineer</title>
+<meta name="description" content="Haneef Olajobi is a Cloud Engineer with skills in AWS, DevOps, Terraform, Linux, and Web Development.">
+<meta name="keywords" content="Haneef Olajobi, Cloud Engineer, AWS, DevOps, Terraform, Nigeria">
 <meta name="author" content="Haneef Olajobi">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#f8f9fa;
-  --card:#ffffff;
-  --muted:#6c757d;
-  --accent:#0b84ff;
-  --accent-2:#4caf50;
-  --glass: rgba(255,255,255,0.5);
-  --hover:#f1f5f9;
+/* ─── RESET & ROOT ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:    #050508;
+  --deep:     #0a0a12;
+  --grid:     #1a1a2e;
+  --silver:   #c0c0c0;
+  --chrome:   #e8e8e8;
+  --glow:     #00bfff;
+  --glow2:    #4fc3f7;
+  --dim:      #888;
+  --card-bg:  rgba(15,15,25,0.85);
+  --border:   rgba(192,192,192,0.15);
 }
 
-/* Base */
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter, system-ui, sans-serif;
-  background:var(--bg);
-  color:#1a1a1a;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-a{text-decoration:none;color:inherit;}
-.container{max-width:1100px;margin:0 auto;padding:24px}
+html { scroll-behavior: smooth; }
 
-/* Header */
-header{
-  position:sticky;top:0;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(6px);
-  border-bottom:1px solid #e3e3e3;
-  z-index:50;
-}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{
-  width:52px;height:52px;
-  border-radius:12px;
-  background:#eaeff5;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-family:'Playfair Display';font-size:20px;
-}
-nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-nav a{text-decoration:none;color:#555;font-weight:600;transition:0.2s}
-nav a:hover{color:var(--accent);}
-
-/* Hero */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 380px;
-  gap:28px;
-  align-items:center;
-  padding:48px 0;
-}
-.intro h1{ font-family:'Playfair Display'; font-size:40px;margin:0; }
-.intro p{color:var(--muted)}
-.type{color:var(--accent);font-weight:700}
-
-/* Profile card */
-.profile{
-  background:var(--card);
-  padding:18px;
-  border-radius:12px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);
-  transition:0.3s;
-}
-.profile:hover{box-shadow:0 6px 25px rgba(0,0,0,0.15);}
-.avatar{ width:100%; height:300px; border-radius:8px; overflow:hidden; background:#ddd; }
-.avatar img{ width:100%; height:100%; object-fit:cover; border-radius:8px; }
-
-/* Grid & cards */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-section.card{ background:var(--card); padding:18px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.06); transition:0.3s; }
-section.card:hover{box-shadow:0 6px 25px rgba(0,0,0,0.12);}
-.card h3, .card h4{margin-top:0;margin-bottom:8px;}
-
-/* Lists */
-ul{margin:0;padding-left:18px}
-li{margin-bottom:6px}
-
-/* Project Highlights Update */
-.skill-tag {
-    display: inline-block;
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-top: 4px;
-}
-.github-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 12px;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.2s;
-}
-.github-link:hover { opacity: 0.8; text-decoration: underline; }
-
-/* Medium Articles */
-.articles-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:16px;
-  margin-top:14px;
+body {
+  background: var(--black);
+  color: var(--chrome);
+  font-family: 'DM Mono', monospace;
+  cursor: none;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-.article-card {
-  background:var(--card);
-  padding:18px;
-  border-radius:12px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);
-  transition:0.3s;
-  border-left:4px solid var(--accent);
+a { text-decoration: none; color: inherit; }
+img { display: block; }
+
+/* ─── CUSTOM CURSOR ────────────────────────────── */
+#cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--glow);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s, border-radius 0.2s;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 12px var(--glow), 0 0 24px var(--glow);
+}
+#cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(0,191,255,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s, border-color 0.3s;
+}
+body.cursor-link #cursor { width: 20px; height: 20px; background: var(--chrome); box-shadow: 0 0 20px var(--chrome); }
+body.cursor-link #cursor-ring { width: 56px; height: 56px; border-color: var(--chrome); }
+body.cursor-btn #cursor { width: 8px; height: 8px; background: #fff; border-radius: 2px; }
+body.cursor-btn #cursor-ring { width: 48px; height: 48px; border-color: var(--glow2); }
+
+/* ─── GRID BACKGROUND ──────────────────────────── */
+#grid-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
 }
 
-.article-card:hover {
-  box-shadow:0 6px 25px rgba(0,0,0,0.12);
-  transform:translateY(-2px);
+/* ─── SIDE NAV ─────────────────────────────────── */
+#sidenav {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+}
+.nav-dot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: none;
+}
+.nav-dot-label {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--dim);
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.3s, transform 0.3s, color 0.3s;
+  text-transform: uppercase;
+}
+.nav-dot:hover .nav-dot-label,
+.nav-dot.active .nav-dot-label { opacity: 1; transform: translateX(0); color: var(--chrome); }
+.nav-dot-pip {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--dim);
+  transition: background 0.3s, box-shadow 0.3s, width 0.3s;
+}
+.nav-dot.active .nav-dot-pip {
+  background: var(--glow);
+  box-shadow: 0 0 8px var(--glow);
+  width: 10px;
+  border-radius: 3px;
 }
 
-.article-card h4 {
-  margin:0 0 8px 0;
-  font-size:16px;
-  line-height:1.4;
+/* ─── HERO / CURTAIN SECTION ───────────────────── */
+#hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.article-card .date {
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:8px;
+#curtain-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%) brightness(0.75) contrast(1.1) saturate(0.8);
+  z-index: 1;
 }
 
-.read-more {
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  color:var(--accent);
-  font-weight:600;
-  font-size:14px;
-  margin-top:8px;
-  transition:0.2s;
+/* silver overlay tint */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5,5,8,0.55) 0%,
+    rgba(0,100,160,0.1) 50%,
+    rgba(5,5,8,0.7) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
 }
 
-.read-more:hover {
-  text-decoration:underline;
+/* scan lines */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  z-index: 3;
+  pointer-events: none;
 }
 
-/* Footer */
-footer{margin-top:36px;padding:28px 0;color:var(--muted);border-top:1px solid #e5e5e5;text-align:center; font-size:14px;}
-
-/* Game area wrapper - centers the game */
-.game-wrapper {
-  display:flex;
-  justify-content:center;
-  width:100%;
-  margin-top:12px;
+.hero-content {
+  position: relative;
+  z-index: 4;
+  padding: 0 8vw;
+  max-width: 700px;
 }
 
-/* Play area */
-.play {
-  position:relative;
-  width:100%;
-  max-width:600px;
-  height:400px;
-  background:#bfe7a1;
-  border:2px solid var(--accent-2);
-  border-radius:12px;
-  overflow:hidden;
-  margin:0 auto;
-  touch-action: none;
-}
-.play:focus { outline: 3px solid rgba(11,132,255,0.18); box-shadow:0 6px 18px rgba(11,132,255,0.08); }
-
-/* Caterpillar pieces */
-.caterpillar-head, .segment {
-  position:absolute;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#2e7d32;
-  box-shadow:0 3px 6px rgba(0,0,0,0.14);
-  transition:left 0.08s linear, top 0.08s linear;
-}
-.caterpillar-head {
-  background:linear-gradient(135deg, #388e3c, #2e7d32);
-}
-.caterpillar-head::before, .caterpillar-head::after {
-  content:"";
-  position:absolute;
-  top:10px;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#fff;
-  left:10px;
-}
-.caterpillar-head::after { left:24px; }
-
-.segment {
-  background:linear-gradient(135deg, #4caf50, #388e3c);
+.hero-eyebrow {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--glow);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 0.3s forwards;
 }
 
-.leaf {
-  position:absolute;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  background:linear-gradient(135deg, #81c784, #66bb6a);
-  box-shadow:0 2px 4px rgba(0,0,0,0.12);
-  transition:0.2s;
-  animation:leafPulse 2s infinite;
+.hero-name {
+  font-family: 'Syncopate', sans-serif;
+  font-size: clamp(36px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--chrome);
+  text-shadow: 0 0 40px rgba(0,191,255,0.3);
+  margin-bottom: 8px;
+  overflow: hidden;
 }
 
-@keyframes leafPulse {
-  0%, 100% { transform:scale(1); }
-  50% { transform:scale(1.1); }
+.hero-name .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: wordReveal 0.7s forwards;
+}
+.hero-name .word:nth-child(1) { animation-delay: 0.6s; }
+.hero-name .word:nth-child(2) { animation-delay: 0.85s; margin-left: 0.25em; }
+
+.hero-title {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(13px, 1.5vw, 18px);
+  color: var(--silver);
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 1.1s forwards;
 }
 
-/* messages */
-.win {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  padding:16px 24px;
-  background:#ffeb3b;
-  border:2px solid #f9a825;
-  border-radius:12px;
-  font-weight:bold;
-  font-size:18px;
-  display:none;
-  z-index:10;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,0.2);
-}
-.level-label {
-  position:absolute;
-  top:10px;
-  left:10px;
-  font-size:18px;
-  background:#fff;
-  padding:6px 10px;
-  border-radius:6px;
-  border:1px solid var(--accent-2);
-  font-weight:600;
+.hero-desc {
+  font-size: 14px;
+  color: var(--dim);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 1.3s forwards;
 }
 
-.score-label {
-  position:absolute;
-  top:10px;
-  right:10px;
-  font-size:18px;
-  background:#fff;
-  padding:6px 10px;
-  border-radius:6px;
-  border:1px solid var(--accent-2);
-  font-weight:600;
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 2s forwards;
+}
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--glow), transparent);
+  animation: scrollPulse 2s infinite;
+}
+.scroll-text {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--dim);
+  text-transform: uppercase;
 }
 
-/* Controls container (buttons below the game) */
-.controls {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:14px;
-  gap:24px;
-  user-select:none;
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
-/* D-pad cluster: larger round buttons */
-.dpad {
-  display:grid;
-  grid-template-areas:
-    ". up ."
-    "left center right"
-    ". down .";
-  grid-template-columns:70px 70px 70px;
-  gap:10px;
-  align-items:center;
-  justify-items:center;
-}
-.dpad .btn {
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  background:linear-gradient(180deg,#ffffff,#f1f1f1);
-  border:2px solid #ccc;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  font-size:24px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.08);
-  cursor:pointer;
-  touch-action: manipulation;
-  transition:0.15s;
-  user-select:none;
-}
-.dpad .btn:active { 
-  transform:translateY(3px); 
-  box-shadow:0 2px 6px rgba(0,0,0,0.12);
-  background:linear-gradient(180deg,#f1f1f1,#e8e8e8);
+/* ─── MAGNETIC BUTTONS ─────────────────────────── */
+.btn-wrap { display: inline-block; position: relative; }
+
+.mag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+  border: none;
+  background: transparent;
 }
 
-.btn.up    { grid-area: up; }
-.btn.down  { grid-area: down; }
-.btn.left  { grid-area: left; }
-.btn.right { grid-area: right; }
-.btn.center { 
-  grid-area: center; 
-  width:60px; 
-  height:60px; 
-  background:linear-gradient(180deg, #81c784, #66bb6a);
-  border:2px solid var(--accent-2); 
-  font-size:14px;
-  color:#fff;
-  font-weight:800;
+.mag-btn.primary {
+  color: var(--black);
+  background: var(--chrome);
 }
-.btn.center:active {
-  background:linear-gradient(180deg, #66bb6a, #4caf50);
+.mag-btn.primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--glow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+}
+.mag-btn.primary:hover::before { transform: scaleX(1); }
+.mag-btn.primary:hover { color: var(--black); }
+
+.mag-btn.outline {
+  color: var(--chrome);
+  border: 1px solid rgba(192,192,192,0.4);
+}
+.mag-btn.outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(192,192,192,0.08);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+}
+.mag-btn.outline:hover::before { transform: scaleX(1); }
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 1.5s forwards;
 }
 
-.game-hint {
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
-  margin-top:12px;
+/* ─── SECTIONS ─────────────────────────────────── */
+section {
+  position: relative;
+  z-index: 10;
+  padding: 100px 8vw;
 }
 
-/* Social icons hover */
-.icon-links a svg path{transition:fill 0.2s;}
-.icon-links a:hover svg path{fill:var(--accent);}
-
-.hero-buttons {
-  margin-top:18px; 
-  display:flex; 
-  gap:12px;
+.section-label {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.45em;
+  color: var(--glow);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, var(--glow), transparent);
 }
 
-.hero-buttons a {
-  padding:10px 14px;
-  border-radius:8px;
-  font-weight:700;
-  text-align:center;
+.section-title {
+  font-family: 'Syncopate', sans-serif;
+  font-size: clamp(24px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--chrome);
+  margin-bottom: 48px;
 }
+
+/* split words */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+}
+.split-word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.split-word-inner.revealed { transform: translateY(0); }
+
+/* ─── ABOUT ────────────────────────────────────── */
+#about { background: var(--deep); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--dim);
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+.about-text p strong { color: var(--chrome); font-weight: 500; }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+.stat-box {
+  border: 1px solid var(--border);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.stat-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(to right, var(--glow), transparent);
+}
+.stat-num {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--chrome);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--silver);
+}
+.skill-bar-wrap {
+  flex: 1;
+  height: 1px;
+  background: var(--grid);
+  position: relative;
+  overflow: visible;
+}
+.skill-bar {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  background: linear-gradient(to right, var(--glow), var(--glow2));
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+  box-shadow: 0 0 6px var(--glow);
+}
+.skill-pct {
+  font-size: 10px;
+  color: var(--dim);
+  width: 32px;
+  text-align: right;
+}
+
+/* ─── PROJECTS ─────────────────────────────────── */
+#work { background: var(--black); }
 
 .projects-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:16px;
-  margin-top:14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-/* Mobile Responsiveness */
-@media(max-width:768px){
-  .container { padding: 16px; }
-  .nav { padding: 10px 0; }
-  nav ul { gap: 12px; font-size: 14px; }
-  .logo { width: 42px; height: 42px; font-size: 18px; }
-  .hero { grid-template-columns: 1fr; padding: 24px 0; gap: 20px; }
-  .intro h1 { font-size: 28px; }
-  .hero-buttons { flex-direction: column; gap: 10px; }
-  .hero-buttons a { width: 100%; padding: 12px 14px; }
-  .profile { order: -1; padding: 14px; }
-  .avatar { height: 250px; }
-  .grid { grid-template-columns: 1fr; gap: 14px; }
-  .projects-grid { grid-template-columns: 1fr; gap: 12px; }
-  .articles-grid { grid-template-columns: 1fr; gap: 12px; }
-  .play { height: 340px; max-width: 100%; }
-  .dpad { grid-template-columns: 60px 60px 60px; gap: 8px; }
-  .dpad .btn { width: 60px; height: 60px; font-size: 20px; }
-  .btn.center { width: 52px; height: 52px; }
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 28px;
+  position: relative;
+  cursor: none;
+  transition: border-color 0.3s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,191,255,0.04), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.project-card:hover { border-color: rgba(0,191,255,0.35); }
+.project-card:hover::before { opacity: 1; }
+
+.project-card-num {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 10px;
+  color: var(--glow);
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+}
+.project-card h4 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--chrome);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.project-card p {
+  font-size: 12px;
+  color: var(--dim);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--glow2);
+  border: 1px solid rgba(79,195,247,0.3);
+  padding: 4px 10px;
+}
+.project-link {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--silver);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s, gap 0.3s;
+}
+.project-link:hover { color: var(--glow); gap: 14px; }
+
+/* ─── ARTICLES ─────────────────────────────────── */
+#articles { background: var(--deep); }
+
+.articles-list { display: flex; flex-direction: column; gap: 0; }
+.article-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: none;
+  gap: 20px;
+  transition: padding-left 0.4s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+  overflow: hidden;
+}
+.article-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: rgba(0,191,255,0.05);
+  transition: width 0.4s;
+}
+.article-row:hover { padding-left: 20px; }
+.article-row:hover::before { width: 100%; }
+.article-row:first-child { border-top: 1px solid var(--border); }
+
+.article-num {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 10px;
+  color: var(--glow);
+  min-width: 32px;
+}
+.article-title {
+  flex: 1;
+  font-size: 14px;
+  color: var(--chrome);
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+.article-row:hover .article-title { color: var(--glow); }
+.article-date { font-size: 11px; color: var(--dim); white-space: nowrap; }
+.article-arrow {
+  font-size: 16px;
+  color: var(--dim);
+  transition: color 0.3s, transform 0.3s;
+}
+.article-row:hover .article-arrow { color: var(--glow); transform: translateX(6px); }
+
+/* ─── GAME ─────────────────────────────────────── */
+#games { background: var(--black); }
+
+.game-shell {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(0,191,255,0.05);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--glow);
+  font-family: 'Syncopate', sans-serif;
+}
+.game-dots { display: flex; gap: 8px; }
+.game-dot { width: 10px; height: 10px; border-radius: 50%; }
+.game-dot:nth-child(1) { background: #ff5f56; }
+.game-dot:nth-child(2) { background: #ffbd2e; }
+.game-dot:nth-child(3) { background: #27c93f; }
+
+.play {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  background: #030308;
+  overflow: hidden;
+  touch-action: none;
+  background-image: 
+    linear-gradient(rgba(0,191,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,191,255,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.play:focus { outline: none; }
+
+.caterpillar-head, .segment {
+  position: absolute;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4fc3f7, #0288d1);
+  box-shadow: 0 0 12px rgba(0,191,255,0.5);
+}
+.caterpillar-head::before, .caterpillar-head::after {
+  content: "";
+  position: absolute;
+  top: 10px; width: 5px; height: 5px;
+  border-radius: 50%; background: #fff;
+  left: 8px;
+}
+.caterpillar-head::after { left: 20px; }
+.segment { background: linear-gradient(135deg, #0288d1, #01579b); box-shadow: 0 0 8px rgba(0,191,255,0.3); }
+.leaf {
+  position: absolute; width: 24px; height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,191,255,0.8), rgba(0,191,255,0.2));
+  box-shadow: 0 0 10px var(--glow);
+  animation: leafPulse 2s infinite;
+}
+@keyframes leafPulse { 0%,100%{transform:scale(1);opacity:0.8} 50%{transform:scale(1.2);opacity:1} }
+
+.win {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 32px;
+  background: rgba(0,10,20,0.95);
+  border: 1px solid var(--glow);
+  font-family: 'Syncopate', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--glow);
+  display: none; z-index: 10; text-align: center;
+  box-shadow: 0 0 40px rgba(0,191,255,0.2);
+}
+.level-label, .score-label {
+  position: absolute;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--glow2);
+  top: 12px;
+}
+.level-label { left: 12px; }
+.score-label { right: 12px; }
+
+.controls {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0,191,255,0.02);
+  border-top: 1px solid var(--border);
+}
+.dpad {
+  display: grid;
+  grid-template-areas: ". up ." "left center right" ". down .";
+  grid-template-columns: 56px 56px 56px;
+  gap: 8px;
+}
+.dpad .btn {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; cursor: none;
+  color: var(--glow);
+  transition: background 0.15s, box-shadow 0.15s;
+  touch-action: manipulation; user-select: none;
+}
+.dpad .btn:active, .dpad .btn.pressed { background: rgba(0,191,255,0.2); box-shadow: 0 0 16px rgba(0,191,255,0.3); }
+.btn.up { grid-area: up; }
+.btn.down { grid-area: down; }
+.btn.left { grid-area: left; }
+.btn.right { grid-area: right; }
+.btn.center {
+  grid-area: center;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 9px; letter-spacing: 0.1em;
+  border-color: var(--glow);
+  color: var(--chrome);
+}
+.game-hint { text-align: center; font-size: 10px; color: var(--dim); letter-spacing: 0.1em; padding: 0 20px 16px; }
+
+/* ─── CONTACT ──────────────────────────────────── */
+#contact { background: var(--deep); text-align: center; }
+
+.contact-email {
+  font-family: 'Syncopate', sans-serif;
+  font-size: clamp(16px, 3vw, 36px);
+  color: var(--chrome);
+  letter-spacing: 0.05em;
+  margin-bottom: 48px;
+  display: inline-block;
+  position: relative;
+}
+.contact-email::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--glow), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+.contact-email:hover::after { transform: scaleX(1); }
+
+.social-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  transition: color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  text-transform: uppercase;
+}
+.social-link:hover {
+  color: var(--glow);
+  border-color: rgba(0,191,255,0.4);
+  box-shadow: 0 0 20px rgba(0,191,255,0.1);
+}
+.social-link svg { fill: currentColor; }
+
+/* ─── FOOTER ───────────────────────────────────── */
+footer {
+  position: relative; z-index: 10;
+  padding: 24px 8vw;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 0.15em;
+}
+
+/* ─── ANIMATIONS ───────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wordReveal {
+  from { opacity: 1; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* glow pulse on sections */
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 0 rgba(0,191,255,0); }
+  50%      { box-shadow: 0 0 40px rgba(0,191,255,0.08); }
+}
+section { animation: glowPulse 6s infinite; }
+
+/* ─── MOBILE ───────────────────────────────────── */
+@media (max-width: 768px) {
+  #cursor, #cursor-ring { display: none; }
+  body { cursor: auto; }
+  #sidenav { display: none; }
+  section { padding: 70px 6vw; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-content { padding: 0 6vw; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+  .article-date { display: none; }
+  .article-row:hover { padding-left: 12px; }
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="logo">H</div>
-      <div>
-        <div style="font-family:'Playfair Display';font-size:18px">Haneef Olajobi</div>
-        <div style="font-size:12px;color:var(--muted)">Cloud Engineer</div>
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- GRID CANVAS -->
+<canvas id="grid-canvas"></canvas>
+
+<!-- SIDE NAV -->
+<nav id="sidenav" aria-label="Section navigation">
+  <a class="nav-dot active" href="#hero" data-section="hero">
+    <span class="nav-dot-label">Home</span>
+    <span class="nav-dot-pip"></span>
+  </a>
+  <a class="nav-dot" href="#about" data-section="about">
+    <span class="nav-dot-label">About</span>
+    <span class="nav-dot-pip"></span>
+  </a>
+  <a class="nav-dot" href="#work" data-section="work">
+    <span class="nav-dot-label">Work</span>
+    <span class="nav-dot-pip"></span>
+  </a>
+  <a class="nav-dot" href="#articles" data-section="articles">
+    <span class="nav-dot-label">Articles</span>
+    <span class="nav-dot-pip"></span>
+  </a>
+  <a class="nav-dot" href="#games" data-section="games">
+    <span class="nav-dot-label">Games</span>
+    <span class="nav-dot-pip"></span>
+  </a>
+  <a class="nav-dot" href="#contact" data-section="contact">
+    <span class="nav-dot-label">Contact</span>
+    <span class="nav-dot-pip"></span>
+  </a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- HERO                                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="hero">
+  <video
+    id="curtain-video"
+    src="curtain.mp4"
+    muted
+    playsinline
+    preload="auto"
+    aria-hidden="true"
+  ></video>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cloud Engineer · DevOps · Builder</p>
+
+    <h1 class="hero-name">
+      <span class="word">Haneef</span>
+      <span class="word">Olajobi</span>
+    </h1>
+
+    <p class="hero-title">// Infrastructure · Automation · Cloud</p>
+
+    <p class="hero-desc">
+      Designing scalable, automated cloud infrastructure from Nigeria to the world.
+      AWS · Terraform · Docker · CI/CD.
+    </p>
+
+    <div class="hero-btns">
+      <div class="btn-wrap">
+        <a href="#work" class="mag-btn primary">View Work</a>
+      </div>
+      <div class="btn-wrap">
+        <a href="Olajobi Haneef.pdf" download class="mag-btn outline">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ABOUT                                           -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="about">
+  <p class="section-label">01 — About</p>
+  <h2 class="section-title">
+    <span class="split-word"><span class="split-word-inner">Building</span></span>
+    <span class="split-word"><span class="split-word-inner"> the</span></span>
+    <span class="split-word"><span class="split-word-inner"> Cloud.</span></span>
+  </h2>
+
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm <strong>Haneef Olajobi</strong>, a Cloud Engineer from Nigeria with a passion for building <strong>scalable, automated, and cost-efficient</strong> cloud solutions. My expertise spans AWS, Python, Terraform, and AI.
+      </p>
+      <p>
+        With <strong>3 years of freelance frontend development</strong> and a 2025 internship where I served as <strong>Technical Lead</strong>, I bring both hands-on engineering depth and leadership experience to every project.
+      </p>
+      <p>
+        Currently building <strong>Multi-Environment-Enterprise-Infrastructure</strong> — a fully automated infrastructure across dev, staging, and production using Terraform.
+      </p>
+
+      <div class="about-stats reveal reveal-delay-1">
+        <div class="stat-box">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">7</div>
+          <div class="stat-label">Cloud Projects</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Articles Written</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Problems Solved</div>
+        </div>
       </div>
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#articles">Articles</a></li>
-        <li><a href="#games">Games</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-<section class="hero">
-  <div class="intro">
-    <h1>Hi, I'm <span style="font-size:44px">Haneef Olajobi</span></h1>
-    <p class="type"><span id="typed">Cloud Engineer</span></p>
-    <p>I am a cloud engineer with experience in QA testing and software development.</p>
-    <div class="hero-buttons">
-      <a href="#work" style="background:var(--accent);color:#fff;">See my work</a>
-      <a href="Olajobi Haneef.pdf" download style="background:#555;color:#fff;">Resume</a>
+    <div class="skills-list reveal reveal-delay-2" id="skills-list">
+      <div class="skill-item">
+        <span>AWS</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div>
+        <span class="skill-pct">88%</span>
+      </div>
+      <div class="skill-item">
+        <span>Terraform</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-w="80"></div></div>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-item">
+        <span>Docker</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-w="75"></div></div>
+        <span class="skill-pct">75%</span>
+      </div>
+      <div class="skill-item">
+        <span>Python</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-w="82"></div></div>
+        <span class="skill-pct">82%</span>
+      </div>
+      <div class="skill-item">
+        <span>Linux / Bash</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-w="85"></div></div>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-item">
+        <span>CI/CD</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-w="78"></div></div>
+        <span class="skill-pct">78%</span>
+      </div>
+      <div class="skill-item">
+        <span>JavaScript</span>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-w="72"></div></div>
+        <span class="skill-pct">72%</span>
+      </div>
     </div>
-  </div>
-
-  <aside class="profile">
-    <div class="avatar">
-      <img src="WhatsApp Image 2025-11-06 at 10.21.52_428c4073.jpg" alt="Haneef Profile Picture">
-    </div>
-    <div class="icon-links" style="margin-top:12px;display:flex;gap:12px;">
-      <a href="mailto:olajobihaneef@gmail.com" title="Email Haneef"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-      <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank" title="LinkedIn Profile"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/></svg></a>
-      <a href="https://github.com/haneeo3" target="_blank" title="GitHub Profile"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg></a>
-    </div>
-  </aside>
-</section>
-
-<section id="about" class="card">
-  <h3>About Me</h3>
-  <p style="color: var(--muted); margin-bottom: 1rem;">
-    I'm <strong>Olajobi Haneef</strong>, a Cloud Engineer from Nigeria with a passion for building scalable, automated, and cost-efficient cloud solutions. My expertise spans <strong>AWS, Python, Terraform, and AI</strong>, combined with strong skills in problem-solving, creative design, leadership, and communication.
-  </p>
-  <p style="color: var(--muted); margin-bottom: 1rem;">
-    I have <strong>3 years of experience as a freelance frontend developer</strong>, and during my 2025 internship, I served as a <strong>Technical Lead</strong>, guiding projects and mentoring teammates. These experiences gave me a solid foundation in both development and leadership, which I now bring to the cloud space.
-  </p>
-  <p style="color: var(--muted); margin-bottom: 1rem;">
-    Currently, I'm working on <strong>Multi-Environment-Enterprise-Infrastructure</strong>, a project that focuses on designing and deploying fully automated infrastructures across development, staging, and production environments using Terraform.
-  </p>
-</section>
-
-
-<section class="grid" style="margin-top:18px">
-  <div class="card">
-    <h4>Technical skills</h4>
-    <ul>
-      <li>Linux, Bash</li>
-      <li>Docker, Kubernetes (learning)</li>
-      <li>AWS — EC2, S3, Lambda, IAM</li>
-      <li>CI/CD — GitHub Actions</li>
-      <li>Python, JavaScript</li>
-      <li>Terraform, Infrastructure as Code</li>
-      <li>QA Testing — Functional & UI</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h4>Education</h4>
-    <strong>Year 1</strong>
-    <ul style="color:var(--muted)">
-      <li>Introduction to Programming</li>
-      <li>Discrete Mathematics</li>
-      <li>Computer Systems</li>
-    </ul>
-    <strong>Year 2</strong>
-    <ul style="color:var(--muted)">
-      <li>Data Structures</li>
-      <li>Operating Systems</li>
-      <li>Software Engineering</li>
-    </ul>
   </div>
 </section>
 
-<section id="work" class="card" style="margin-top:18px">
-  <h3>Projects / Work</h3>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- WORK                                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="work">
+  <p class="section-label">02 — Work</p>
+  <h2 class="section-title">
+    <span class="split-word"><span class="split-word-inner">Selected</span></span>
+    <span class="split-word"><span class="split-word-inner"> Projects.</span></span>
+  </h2>
+
   <div class="projects-grid">
-    <div class="card">
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-card-num">001</div>
       <h4>Automatic Backup System</h4>
-      <div class="skill-tag">Python, AWS S3, Cron Jobs</div>
-      <p style="color:var(--muted); margin-top:8px;">Automates daily data backups to Amazon S3 with logging for easy monitoring.</p>
-      <a href="https://github.com/haneeo3/Automatic-Backup-System" target="_blank" class="github-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        View on GitHub
+      <p>Automates daily data backups to Amazon S3 with logging for easy monitoring and recovery.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">AWS S3</span><span class="tag">Cron Jobs</span>
+      </div>
+      <a href="https://github.com/haneeo3/Automatic-Backup-System" target="_blank" class="project-link">
+        View on GitHub <span>→</span>
       </a>
     </div>
 
-    <div class="card">
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-card-num">002</div>
       <h4>Cloud Cost Calculator</h4>
-      <div class="skill-tag">Python, AWS Boto3, Lambda, SNS</div>
-      <p style="color:var(--muted); margin-top:8px;">Monitors AWS spending and sends notifications when usage exceeds thresholds.</p>
-      <a href="https://github.com/haneeo3/Cloud-Cost-Calculator" target="_blank" class="github-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        View on GitHub
+      <p>Monitors AWS spending and sends notifications when usage exceeds defined cost thresholds.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Boto3</span><span class="tag">Lambda</span><span class="tag">SNS</span>
+      </div>
+      <a href="https://github.com/haneeo3/Cloud-Cost-Calculator" target="_blank" class="project-link">
+        View on GitHub <span>→</span>
       </a>
     </div>
 
-    <div class="card">
-      <h4>AWS Static Website</h4>
-      <div class="skill-tag">S3, CloudFront, HTML/CSS</div>
-      <p style="color:var(--muted); margin-top:8px;">Responsive portfolio hosted on S3 with global CDN delivery via CloudFront.</p>
-      <a href="https://github.com/haneeo3/aws-static-website" target="_blank" class="github-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        View on GitHub
-      </a>
-    </div>
-
-    <div class="card">
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-card-num">003</div>
       <h4>Website Uptime Monitor</h4>
-      <div class="skill-tag">Python, Lambda, SNS, CloudWatch</div>
-      <p style="color:var(--muted); margin-top:8px;">Monitors website uptime and sends real-time alerts when downtime occurs.</p>
-      <a href="https://github.com/haneeo3/Website-Uptime-Monitor" target="_blank" class="github-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        View on GitHub
+      <p>Monitors website uptime and delivers real-time alerts when downtime is detected.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Lambda</span><span class="tag">CloudWatch</span>
+      </div>
+      <a href="https://github.com/haneeo3/Website-Uptime-Monitor" target="_blank" class="project-link">
+        View on GitHub <span>→</span>
       </a>
     </div>
 
-    <div class="card">
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-card-num">004</div>
       <h4>Customer Inquiry Manager</h4>
-      <div class="skill-tag">Python, AWS Bedrock, RDS, SES</div>
-      <p style="color:var(--muted); margin-top:8px;">AI-powered system that handles customer messages with sentiment analysis and automated responses.</p>
-      <a href="https://github.com/haneeo3/Customer-Inquiry-Manager" target="_blank" class="github-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        View on GitHub
+      <p>AI-powered system handling customer messages with sentiment analysis and automated responses.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Bedrock</span><span class="tag">RDS</span><span class="tag">SES</span>
+      </div>
+      <a href="https://github.com/haneeo3/Customer-Inquiry-Manager" target="_blank" class="project-link">
+        View on GitHub <span>→</span>
       </a>
     </div>
 
-    <div class="card">
-      <h4>Serverless Blog Website</h4>
-      <div class="skill-tag">Lambda, API Gateway, DynamoDB, S3</div>
-      <p style="color:var(--muted); margin-top:8px;">Fully serverless blog with create, read, update, delete capabilities and image uploads.</p>
-      <a href="https://github.com/haneeo3/serverless-blog-website" target="_blank" class="github-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        View on GitHub
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-card-num">005</div>
+      <h4>Serverless Blog Platform</h4>
+      <p>Fully serverless blog with CRUD capabilities, image uploads, and zero server management.</p>
+      <div class="project-tags">
+        <span class="tag">Lambda</span><span class="tag">API Gateway</span><span class="tag">DynamoDB</span>
+      </div>
+      <a href="https://github.com/haneeo3/serverless-blog-website" target="_blank" class="project-link">
+        View on GitHub <span>→</span>
       </a>
     </div>
 
-    <div class="card">
-      <h4>S3 Backup Automation Script</h4>
-      <div class="skill-tag">Bash, AWS CLI, S3</div>
-      <p style="color:var(--muted); margin-top:8px;">Lightweight automation tool with timestamped backups and comprehensive logging.</p>
-      <a href="https://github.com/haneeo3/S3-Backup-Automation-Script" target="_blank" class="github-link">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-        View on GitHub
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="articles" class="card" style="margin-top:18px">
-  <h3>Articles & Writing</h3>
-  <p style="color:var(--muted); margin-bottom:14px;">Technical articles and insights on cloud computing, DevOps, and career development.</p>
-  
-  <div class="articles-grid">
-    <div class="article-card">
-      <h4>How to Build Your First Web Server Monitoring System</h4>
-      <div class="date">A Beginner's Guide to Linux System Monitoring</div>
-      <a href="https://medium.com/@olajobihaneef/how-to-build-your-first-web-server-monitoring-system-a-beginners-guide-to-linux-system-d1a7c26ba6d7" target="_blank" class="read-more">
-        Read on Medium →
-      </a>
-    </div>
-
-    <div class="article-card">
-      <h4>Everyone's Installing MoltBot. Nobody's Asking the Obvious Question.</h4>
-      <div class="date">February 2026</div>
-      <a href="https://medium.com/@olajobihaneef" target="_blank" class="read-more">
-        Read on Medium →
-      </a>
-    </div>
-
-    <div class="article-card">
-      <h4>The Job Market in 2026 is Cooked if You Don't Know Cloud Services</h4>
-      <div class="date">January 2026</div>
-      <a href="https://medium.com/@olajobihaneef" target="_blank" class="read-more">
-        Read on Medium →
-      </a>
-    </div>
-
-    <div class="article-card">
-      <h4>If I Had to Learn Cloud Computing in 2026… I'd Do It in 90 Days Using AI</h4>
-      <div class="date">December 2025</div>
-      <a href="https://medium.com/@olajobihaneef" target="_blank" class="read-more">
-        Read on Medium →
-      </a>
-    </div>
-
-    <div class="article-card">
-      <h4>Building a Serverless Video Streaming Platform with InfraCodeBase</h4>
-      <div class="date">December 2025</div>
-      <a href="https://medium.com/@olajobihaneef/building-a-serverless-video-streaming-platform-with-infracodebase-ee319cd1be09" target="_blank" class="read-more">
-        Read on Medium →
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-card-num">006</div>
+      <h4>S3 Backup Automation</h4>
+      <p>Lightweight automation tool with timestamped backups and comprehensive operational logging.</p>
+      <div class="project-tags">
+        <span class="tag">Bash</span><span class="tag">AWS CLI</span><span class="tag">S3</span>
+      </div>
+      <a href="https://github.com/haneeo3/S3-Backup-Automation-Script" target="_blank" class="project-link">
+        View on GitHub <span>→</span>
       </a>
     </div>
   </div>
 </section>
 
-<section id="games" class="card" style="margin-top:18px">
-  <h3>Games / Fun Projects</h3>
-  <p style="color:var(--muted)">Play my Caterpillar Game! Collect all the leaves to complete each level.</p>
-  <div class="game-wrapper">
-    <div class="play" id="play" tabindex="0" title="Click to focus and use arrow keys or WASD">
-      <div class="level-label" id="levelDisplay">Level: 1</div>
-      <div class="score-label" id="scoreDisplay">Score: 0</div>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ARTICLES                                        -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="articles">
+  <p class="section-label">03 — Writing</p>
+  <h2 class="section-title">
+    <span class="split-word"><span class="split-word-inner">Articles</span></span>
+    <span class="split-word"><span class="split-word-inner"> &amp; Insights.</span></span>
+  </h2>
+
+  <div class="articles-list reveal">
+    <a class="article-row" href="https://medium.com/@olajobihaneef/how-to-build-your-first-web-server-monitoring-system-a-beginners-guide-to-linux-system-d1a7c26ba6d7" target="_blank">
+      <span class="article-num">01</span>
+      <span class="article-title">How to Build Your First Web Server Monitoring System</span>
+      <span class="article-date">2025</span>
+      <span class="article-arrow">→</span>
+    </a>
+    <a class="article-row" href="https://medium.com/@olajobihaneef" target="_blank">
+      <span class="article-num">02</span>
+      <span class="article-title">Everyone's Installing MoltBot. Nobody's Asking the Obvious Question.</span>
+      <span class="article-date">Feb 2026</span>
+      <span class="article-arrow">→</span>
+    </a>
+    <a class="article-row" href="https://medium.com/@olajobihaneef" target="_blank">
+      <span class="article-num">03</span>
+      <span class="article-title">The Job Market in 2026 is Cooked if You Don't Know Cloud Services</span>
+      <span class="article-date">Jan 2026</span>
+      <span class="article-arrow">→</span>
+    </a>
+    <a class="article-row" href="https://medium.com/@olajobihaneef" target="_blank">
+      <span class="article-num">04</span>
+      <span class="article-title">If I Had to Learn Cloud Computing in 2026… I'd Do It in 90 Days Using AI</span>
+      <span class="article-date">Dec 2025</span>
+      <span class="article-arrow">→</span>
+    </a>
+    <a class="article-row" href="https://medium.com/@olajobihaneef/building-a-serverless-video-streaming-platform-with-infracodebase-ee319cd1be09" target="_blank">
+      <span class="article-num">05</span>
+      <span class="article-title">Building a Serverless Video Streaming Platform with InfraCodeBase</span>
+      <span class="article-date">Dec 2025</span>
+      <span class="article-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- GAME                                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="games">
+  <p class="section-label">04 — Fun</p>
+  <h2 class="section-title">
+    <span class="split-word"><span class="split-word-inner">Caterpillar</span></span>
+    <span class="split-word"><span class="split-word-inner"> Game.</span></span>
+  </h2>
+
+  <div class="game-shell reveal">
+    <div class="game-header">
+      <div class="game-dots">
+        <div class="game-dot"></div>
+        <div class="game-dot"></div>
+        <div class="game-dot"></div>
+      </div>
+      <span>CATERPILLAR.exe</span>
+      <span id="scoreDisplay">SCORE: 0</span>
+    </div>
+
+    <div class="play" id="play" tabindex="0">
+      <div class="level-label" id="levelDisplay">LVL 1</div>
       <div class="caterpillar-head" id="head"></div>
       <div class="win" id="win"></div>
     </div>
+
+    <div class="controls">
+      <div class="dpad" id="dpad">
+        <div class="btn up" data-dir="up">▲</div>
+        <div class="btn left" data-dir="left">◀</div>
+        <div class="btn center" id="startBtn">START</div>
+        <div class="btn right" data-dir="right">▶</div>
+        <div class="btn down" data-dir="down">▼</div>
+      </div>
+    </div>
+    <div class="game-hint">CLICK GAME · ARROW KEYS / WASD · OR TAP BUTTONS</div>
   </div>
-  <div class="controls">
-    <div class="dpad" id="dpad">
-      <div class="btn up" data-dir="up">▲</div>
-      <div class="btn left" data-dir="left">◀</div>
-      <div class="btn center" id="startBtn">START</div>
-      <div class="btn right" data-dir="right">▶</div>
-      <div class="btn down" data-dir="down">▼</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- CONTACT                                         -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="contact">
+  <p class="section-label">05 — Contact</p>
+  <h2 class="section-title reveal">
+    <span class="split-word"><span class="split-word-inner">Let's</span></span>
+    <span class="split-word"><span class="split-word-inner"> Build</span></span>
+    <span class="split-word"><span class="split-word-inner"> Together.</span></span>
+  </h2>
+
+  <div class="reveal reveal-delay-1">
+    <a href="mailto:olajobihaneef@gmail.com" class="contact-email">olajobihaneef@gmail.com</a>
+  </div>
+
+  <div class="social-links reveal reveal-delay-2">
+    <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank" class="social-link">
+      <svg width="16" height="16" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/haneeo3" target="_blank" class="social-link">
+      <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1-2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+      GitHub
+    </a>
+    <a href="https://medium.com/@olajobihaneef" target="_blank" class="social-link">
+      <svg width="16" height="16" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+      Medium
+    </a>
+    <div class="btn-wrap">
+      <a href="mailto:olajobihaneef@gmail.com" class="mag-btn primary" style="margin-top:0">Hire Me</a>
     </div>
   </div>
-  <div class="game-hint">Mobile: Tap direction buttons | Desktop: Click game area then use Arrow keys or WASD</div>
 </section>
-
-<section id="contact" class="card" style="margin-top:18px">
-  <h3>Contact</h3>
-  <p style="color:var(--muted); text-align:center; margin-bottom:14px;">Let's connect! Feel free to reach out through any of these platforms.</p>
-  <div class="icon-links" style="display:flex;gap:20px;justify-content:center;align-items:center;margin-top:10px;">
-    <a href="mailto:olajobihaneef@gmail.com"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-    <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/></svg></a>
-    <a href="https://github.com/haneeo3" target="_blank"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.6 2.1-1 -2.5-.3-5.2-1.3-5.2-5.9 0-1.3.5-2.4 1.2-3.3 -.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.6-5.2 5.9.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg></a>
-    <a href="https://medium.com/@olajobihaneef" target="_blank" title="Medium Profile"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
-  </div>
-</section>
-
-</main>
 
 <footer>
-  <div class="container">© 2025 Haneef Olajobi. All rights reserved.</div>
+  <span>© 2025 Haneef Olajobi</span>
+  <span>Cloud Engineer · Nigeria</span>
 </footer>
 
+<!-- ═══════════════════════════════════════════════ -->
+<!-- SCRIPTS                                         -->
+<!-- ═══════════════════════════════════════════════ -->
 <script>
-// Caterpillar Game JS - Enhanced Version
-const play = document.getElementById('play');
-const head = document.getElementById('head');
-const winMsg = document.getElementById('win');
-const levelDisplay = document.getElementById('levelDisplay');
-const scoreDisplay = document.getElementById('scoreDisplay');
-const startBtn = document.getElementById('startBtn');
+/* ── CURSOR ─────────────────────────────────────── */
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = -100, my = -100, rx = -100, ry = -100;
 
-let headPos = { x:280, y:180 };
-let speed = 10;
-let segments = [];
-let leaves = [];
-let level = 1;
-let maxLevel = 5;
-let leavesPerLevel = 5;
-let direction = null;
-let keyHeld = {};
-let gameStarted = false;
-let score = 0;
-let gameInterval = null;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function animCursor() {
+  rx += (mx - rx) * 0.18;
+  ry += (my - ry) * 0.18;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+  cursorRing.style.left = rx + 'px';
+  cursorRing.style.top  = ry + 'px';
+  requestAnimationFrame(animCursor);
+})();
 
-function startLevel(){
+document.querySelectorAll('a, .nav-dot').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-link'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-link'));
+});
+document.querySelectorAll('.mag-btn, .dpad .btn').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-btn'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-btn'));
+});
+
+/* ── MAGNETIC BUTTONS ───────────────────────────── */
+document.querySelectorAll('.btn-wrap').forEach(wrap => {
+  const btn = wrap.querySelector('.mag-btn');
+  if (!btn) return;
+  wrap.addEventListener('mousemove', e => {
+    const r = wrap.getBoundingClientRect();
+    const dx = e.clientX - (r.left + r.width / 2);
+    const dy = e.clientY - (r.top + r.height / 2);
+    btn.style.transform = `translate(${dx * 0.35}px, ${dy * 0.35}px)`;
+  });
+  wrap.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0,0)';
+  });
+});
+
+/* ── GRID CANVAS ────────────────────────────────── */
+const canvas = document.getElementById('grid-canvas');
+const ctx = canvas.getContext('2d');
+let gridSections = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = document.body.scrollHeight;
+  drawGrid();
+}
+
+function drawGrid() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const size = 48;
+  ctx.strokeStyle = 'rgba(0,191,255,0.07)';
+  ctx.lineWidth = 0.5;
+  for (let x = 0; x <= canvas.width; x += size) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+  }
+  for (let y = 0; y <= canvas.height; y += size) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+  }
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+/* ── GRID GLOW ON SECTION ENTER ─────────────────── */
+function pulseGridNear(el) {
+  const r = el.getBoundingClientRect();
+  const cy = r.top + r.height / 2 + window.scrollY;
+  const size = 48;
+  const rows = Math.ceil(r.height / size) + 4;
+  const cols = Math.ceil(canvas.width / size) + 2;
+  const startRow = Math.floor((cy - r.height / 2) / size) - 2;
+
+  let frame = 0;
+  const totalFrames = 40;
+  function animate() {
+    drawGrid();
+    const progress = frame / totalFrames;
+    const alpha = Math.sin(progress * Math.PI) * 0.35;
+    ctx.strokeStyle = `rgba(0,191,255,${alpha})`;
+    ctx.lineWidth = 1;
+    for (let row = startRow; row <= startRow + rows; row++) {
+      const y = row * size;
+      for (let col = 0; col <= cols; col++) {
+        const x = col * size;
+        if (frame < totalFrames) {
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + size, y); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + size); ctx.stroke();
+        }
+      }
+    }
+    frame++;
+    if (frame < totalFrames) requestAnimationFrame(animate);
+    else drawGrid();
+  }
+  animate();
+}
+
+/* ── SCROLL-JACKED VIDEO ────────────────────────── */
+const video = document.getElementById('curtain-video');
+const hero  = document.getElementById('hero');
+
+video.addEventListener('loadedmetadata', () => {
+  video.currentTime = 0;
+  video.pause();
+});
+
+let lastScrollY = 0;
+function updateVideo() {
+  const heroH = hero.offsetHeight;
+  const scrollY = window.scrollY;
+  const pct = Math.min(scrollY / heroH, 1);
+  if (video.duration) {
+    video.currentTime = pct * video.duration;
+  }
+  lastScrollY = scrollY;
+}
+
+/* Mobile fallback: just autoplay */
+if ('ontouchstart' in window) {
+  video.autoplay = true;
+  video.loop = true;
+} else {
+  window.addEventListener('scroll', updateVideo, { passive: true });
+  video.addEventListener('loadedmetadata', () => updateVideo());
+}
+
+/* ── SIDE NAV ACTIVE ────────────────────────────── */
+const sections = document.querySelectorAll('section[id]');
+const navDots  = document.querySelectorAll('.nav-dot[data-section]');
+
+function updateNav() {
+  const mid = window.scrollY + window.innerHeight / 2;
+  sections.forEach(sec => {
+    const top = sec.offsetTop;
+    const bot = top + sec.offsetHeight;
+    const dot = document.querySelector(`.nav-dot[data-section="${sec.id}"]`);
+    if (dot) dot.classList.toggle('active', mid >= top && mid < bot);
+  });
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+/* ── SCROLL REVEALS ─────────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+
+/* ── SPLIT TEXT REVEAL ──────────────────────────── */
+const splitObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const inners = e.target.querySelectorAll('.split-word-inner');
+      inners.forEach((w, i) => {
+        setTimeout(() => w.classList.add('revealed'), i * 120);
+      });
+      pulseGridNear(e.target);
+      splitObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.section-title').forEach(el => splitObs.observe(el));
+
+/* ── SKILL BARS ─────────────────────────────────── */
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-bar').forEach(bar => {
+        bar.style.width = bar.dataset.w + '%';
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+const skillsList = document.getElementById('skills-list');
+if (skillsList) barObs.observe(skillsList);
+
+/* ── 3D CARD TILT ───────────────────────────────── */
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(600px) rotateY(0) rotateX(0) translateZ(0)';
+  });
+});
+
+/* ── RESIZE grid canvas on content change ───────── */
+const resizeObs = new ResizeObserver(() => resizeCanvas());
+resizeObs.observe(document.body);
+
+/* ════════════════════════════════════════════════ */
+/* CATERPILLAR GAME                                 */
+/* ════════════════════════════════════════════════ */
+const play        = document.getElementById('play');
+const headEl      = document.getElementById('head');
+const winMsg      = document.getElementById('win');
+const levelDisp   = document.getElementById('levelDisplay');
+const scoreDisp   = document.getElementById('scoreDisplay');
+const startBtn    = document.getElementById('startBtn');
+
+let headPos = { x: 280, y: 180 };
+let speed = 10, segments = [], leaves = [];
+let level = 1, maxLevel = 5, score = 0;
+let direction = null, keyHeld = {}, gameStarted = false, gameInterval = null;
+let activeButton = null;
+
+function startLevel() {
   winMsg.style.display = 'none';
-  levelDisplay.textContent = 'Level: ' + level;
-  scoreDisplay.textContent = 'Score: ' + score;
-  
-  const playWidth = play.clientWidth;
-  const playHeight = play.clientHeight;
-  
-  headPos={x:playWidth/2-20, y:playHeight/2-20}; 
-  head.style.left=headPos.x+'px'; 
-  head.style.top=headPos.y+'px';
-  
-  segments.forEach(s=>s.remove()); 
-  segments=[];
-  leaves.forEach(l=>l.remove()); 
-  leaves=[];
-  
-  const totalLeaves=leavesPerLevel+(level-1)*2;
-  for(let i=0;i<totalLeaves;i++){
-    const leaf=document.createElement('div'); 
-    leaf.className='leaf';
-    leaf.style.left=Math.random()*(playWidth-30)+'px';
-    leaf.style.top=Math.random()*(playHeight-30)+'px';
-    play.appendChild(leaf); 
+  levelDisp.textContent = 'LVL ' + level;
+  scoreDisp.textContent = 'SCORE: ' + score;
+  const pw = play.clientWidth, ph = play.clientHeight;
+  headPos = { x: pw/2 - 18, y: ph/2 - 18 };
+  headEl.style.left = headPos.x + 'px';
+  headEl.style.top  = headPos.y + 'px';
+  segments.forEach(s => s.remove()); segments = [];
+  leaves.forEach(l => l.remove()); leaves = [];
+  const total = 5 + (level - 1) * 2;
+  for (let i = 0; i < total; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    leaf.style.left = Math.random() * (pw - 24) + 'px';
+    leaf.style.top  = Math.random() * (ph - 24) + 'px';
+    play.appendChild(leaf);
     leaves.push(leaf);
   }
 }
 
-function addSegment(){
-  const seg=document.createElement('div'); 
-  seg.className='segment'; 
-  seg.style.left=headPos.x+'px'; 
-  seg.style.top=headPos.y+'px'; 
-  play.appendChild(seg); 
+function addSeg() {
+  const seg = document.createElement('div');
+  seg.className = 'segment';
+  seg.style.left = headPos.x + 'px';
+  seg.style.top  = headPos.y + 'px';
+  play.appendChild(seg);
   segments.push(seg);
 }
 
-function applyDirection(){
-  if(keyHeld['w']||keyHeld['ArrowUp'])direction='up';
-  else if(keyHeld['s']||keyHeld['ArrowDown'])direction='down';
-  else if(keyHeld['a']||keyHeld['ArrowLeft'])direction='left';
-  else if(keyHeld['d']||keyHeld['ArrowRight'])direction='right';
+function applyDir() {
+  if (keyHeld['w'] || keyHeld['ArrowUp'])    direction = 'up';
+  else if (keyHeld['s'] || keyHeld['ArrowDown'])  direction = 'down';
+  else if (keyHeld['a'] || keyHeld['ArrowLeft'])  direction = 'left';
+  else if (keyHeld['d'] || keyHeld['ArrowRight']) direction = 'right';
 }
 
-function moveOnce(dir){
-  if(!dir)return;
-  if(dir==='up')headPos.y-=speed;
-  if(dir==='down')headPos.y+=speed;
-  if(dir==='left')headPos.x-=speed;
-  if(dir==='right')headPos.x+=speed;
-  
-  const playWidth = play.clientWidth;
-  const playHeight = play.clientHeight;
-  
-  headPos.x=Math.max(0,Math.min(playWidth-40,headPos.x));
-  headPos.y=Math.max(0,Math.min(playHeight-40,headPos.y));
-}
+function update() {
+  if (!gameStarted) return;
+  applyDir();
+  if (direction === 'up')    headPos.y -= speed;
+  if (direction === 'down')  headPos.y += speed;
+  if (direction === 'left')  headPos.x -= speed;
+  if (direction === 'right') headPos.x += speed;
+  const pw = play.clientWidth, ph = play.clientHeight;
+  headPos.x = Math.max(0, Math.min(pw - 36, headPos.x));
+  headPos.y = Math.max(0, Math.min(ph - 36, headPos.y));
+  headEl.style.left = headPos.x + 'px';
+  headEl.style.top  = headPos.y + 'px';
 
-function update(){
-  if(!gameStarted) return;
-  
-  applyDirection();
-  moveOnce(direction);
-  head.style.left=headPos.x+'px'; 
-  head.style.top=headPos.y+'px';
-  
-  let px=headPos.x,py=headPos.y;
-  segments.forEach(seg=>{
-    const sx=parseFloat(seg.style.left),sy=parseFloat(seg.style.top);
-    seg.style.left=sx+(px-sx)*0.18+'px';
-    seg.style.top=sy+(py-sy)*0.18+'px';
-    px=sx; py=sy;
+  let px = headPos.x, py = headPos.y;
+  segments.forEach(seg => {
+    const sx = parseFloat(seg.style.left), sy = parseFloat(seg.style.top);
+    seg.style.left = sx + (px - sx) * 0.18 + 'px';
+    seg.style.top  = sy + (py - sy) * 0.18 + 'px';
+    px = sx; py = sy;
   });
-  
-  leaves.forEach((leaf,idx)=>{
-    if(!leaf)return;
-    const dx = Math.abs(leaf.offsetLeft-headPos.x);
-    const dy = Math.abs(leaf.offsetTop-headPos.y);
-    
-    if(dx<35 && dy<35){
-      leaf.remove(); 
-      leaves.splice(idx,1); 
-      addSegment();
+
+  leaves.forEach((leaf, idx) => {
+    if (!leaf) return;
+    if (Math.abs(leaf.offsetLeft - headPos.x) < 30 && Math.abs(leaf.offsetTop - headPos.y) < 30) {
+      leaf.remove(); leaves.splice(idx, 1); addSeg();
       score += 10;
-      scoreDisplay.textContent = 'Score: ' + score;
-      
-      if(leaves.length===0){
-        if(level<maxLevel){
-          winMsg.textContent=`🎉 Level ${level} Complete! Get ready for Level ${level+1}...`; 
-          winMsg.style.display='block';
-          score += 50; // Bonus for completing level
-          level++; 
-          setTimeout(startLevel,1500);
-        } else { 
-          winMsg.textContent='🏆 Amazing! You Completed All Levels! Final Score: ' + score; 
-          winMsg.style.display='block';
+      scoreDisp.textContent = 'SCORE: ' + score;
+      if (leaves.length === 0) {
+        if (level < maxLevel) {
+          winMsg.textContent = `LEVEL ${level} COMPLETE`;
+          winMsg.style.display = 'block';
+          score += 50; level++;
+          setTimeout(startLevel, 1500);
+        } else {
+          winMsg.textContent = `ALL LEVELS CLEAR · ${score} PTS`;
+          winMsg.style.display = 'block';
           gameStarted = false;
           startBtn.textContent = 'RESTART';
         }
       }
     }
   });
+  gameInterval = requestAnimationFrame(update);
 }
 
-function gameLoop(){
-  update();
-  gameInterval = requestAnimationFrame(gameLoop);
-}
-
-function startGame(){
-  if(!gameStarted){
+function toggleGame() {
+  if (!gameStarted) {
     gameStarted = true;
     startBtn.textContent = 'PAUSE';
-    if(winMsg.style.display === 'block' && level > maxLevel){
-      // Reset game
-      level = 1;
-      score = 0;
-      segments.forEach(s=>s.remove());
-      segments = [];
+    if (winMsg.style.display === 'block' && level > maxLevel) {
+      level = 1; score = 0;
+      segments.forEach(s => s.remove()); segments = [];
     }
     startLevel();
-    gameLoop();
+    gameInterval = requestAnimationFrame(update);
   } else {
     gameStarted = false;
     startBtn.textContent = 'RESUME';
-    if(gameInterval){
-      cancelAnimationFrame(gameInterval);
-    }
+    cancelAnimationFrame(gameInterval);
   }
 }
 
-startBtn.addEventListener('click', startGame);
-startBtn.addEventListener('touchstart', (e)=>{e.preventDefault(); startGame();}, {passive:false});
+startBtn.addEventListener('click', toggleGame);
+startBtn.addEventListener('touchstart', e => { e.preventDefault(); toggleGame(); }, { passive: false });
+play.addEventListener('click', () => play.focus());
 
-play.addEventListener('click',()=>{play.focus();});
-document.addEventListener('click',(e)=>{
-  if(!play.contains(e.target) && !e.target.classList.contains('btn')){
-    play.blur(); 
-    keyHeld={}; 
+document.addEventListener('keydown', e => {
+  if (document.activeElement !== play) return;
+  if (['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) {
+    e.preventDefault(); keyHeld[e.key] = true;
+    if (!gameStarted) toggleGame();
   }
 });
+document.addEventListener('keyup', e => { delete keyHeld[e.key]; });
 
-document.addEventListener('keydown',(e)=>{
-  if(document.activeElement!==play)return; 
-  const k=e.key; 
-  if(['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(k)){
-    e.preventDefault(); 
-    keyHeld[k]=true;
-    if(!gameStarted){
-      startGame();
-    }
-  }
+document.querySelectorAll('.dpad .btn[data-dir]').forEach(btn => {
+  const dir = btn.dataset.dir;
+  const s = ev => { ev.preventDefault(); direction = dir; activeButton = dir; if (!gameStarted) toggleGame(); };
+  const e = ev => { ev.preventDefault(); if (activeButton === dir) { direction = null; activeButton = null; } };
+  btn.addEventListener('touchstart', s, { passive: false });
+  btn.addEventListener('touchend', e, { passive: false });
+  btn.addEventListener('mousedown', s);
+  btn.addEventListener('mouseup', e);
 });
+document.addEventListener('mouseup', () => { if (activeButton) { direction = null; activeButton = null; } });
 
-document.addEventListener('keyup',(e)=>{
-  const k=e.key; 
-  if(keyHeld[k])delete keyHeld[k]; 
-});
-
-const dpad=document.getElementById('dpad');
-let activeButton = null;
-
-dpad.querySelectorAll('.btn[data-dir]').forEach(btn=>{
-  const dir=btn.dataset.dir;
-  
-  const start=ev=>{
-    ev.preventDefault(); 
-    direction=dir;
-    activeButton = dir;
-    if(!gameStarted){
-      startGame();
-    }
-  }
-  
-  const end=ev=>{
-    ev.preventDefault(); 
-    if(activeButton === dir){
-      direction=null;
-      activeButton = null;
-    }
-  }
-  
-  btn.addEventListener('touchstart',start,{passive:false}); 
-  btn.addEventListener('touchend',end, {passive:false});
-  btn.addEventListener('touchcancel',end, {passive:false}); 
-  btn.addEventListener('mousedown',start); 
-  btn.addEventListener('mouseup',end);
-});
-
-document.addEventListener('mouseup', ()=>{
-  if(activeButton){
-    direction = null;
-    activeButton = null;
-  }
-});
-
-dpad.addEventListener('touchstart',(e)=>{e.preventDefault();},{passive:false});
-
-// Initialize but don't start
 startLevel();
 </script>
-
 </body>
 </html>
