@@ -123,7 +123,7 @@ body.cursor-btn #cursor-ring { width: 48px; height: 48px; border-color: var(--gl
   border-radius: 3px;
 }
 
-/* ─── HERO / CURTAIN SECTION ───────────────────── */
+/* ─── HERO ─────────────────────────────────────── */
 #hero {
   position: relative;
   height: 100vh;
@@ -132,14 +132,17 @@ body.cursor-btn #cursor-ring { width: 48px; height: 48px; border-color: var(--gl
   align-items: center;
 }
 
-#curtain-video {
+/* HERO IMAGE - replaces video */
+#hero-img {
   position: absolute;
-  inset: 0;
+  inset: -80px 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 160px);
   object-fit: cover;
-  filter: grayscale(20%) brightness(0.75) contrast(1.1) saturate(0.8);
+  object-position: center 20%;
+  filter: grayscale(35%) brightness(0.6) contrast(1.2) saturate(0.5);
   z-index: 1;
+  will-change: transform;
 }
 
 /* silver overlay tint */
@@ -149,9 +152,9 @@ body.cursor-btn #cursor-ring { width: 48px; height: 48px; border-color: var(--gl
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(5,5,8,0.55) 0%,
+    rgba(5,5,8,0.65) 0%,
     rgba(0,100,160,0.1) 50%,
-    rgba(5,5,8,0.7) 100%
+    rgba(5,5,8,0.75) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -357,11 +360,7 @@ section {
   margin-bottom: 48px;
 }
 
-/* split words */
-.split-word {
-  display: inline-block;
-  overflow: hidden;
-}
+.split-word { display: inline-block; overflow: hidden; }
 .split-word-inner {
   display: inline-block;
   transform: translateY(110%);
@@ -413,18 +412,9 @@ section {
   color: var(--chrome);
   line-height: 1;
 }
-.stat-label {
-  font-size: 11px;
-  color: var(--dim);
-  letter-spacing: 0.1em;
-  margin-top: 8px;
-}
+.stat-label { font-size: 11px; color: var(--dim); letter-spacing: 0.1em; margin-top: 8px; }
 
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.skills-list { display: flex; flex-direction: column; gap: 12px; }
 .skill-item {
   display: flex;
   align-items: center;
@@ -448,12 +438,7 @@ section {
   transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
   box-shadow: 0 0 6px var(--glow);
 }
-.skill-pct {
-  font-size: 10px;
-  color: var(--dim);
-  width: 32px;
-  text-align: right;
-}
+.skill-pct { font-size: 10px; color: var(--dim); width: 32px; text-align: right; }
 
 /* ─── PROJECTS ─────────────────────────────────── */
 #work { background: var(--black); }
@@ -484,51 +469,12 @@ section {
 }
 .project-card:hover { border-color: rgba(0,191,255,0.35); }
 .project-card:hover::before { opacity: 1; }
-
-.project-card-num {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 10px;
-  color: var(--glow);
-  letter-spacing: 0.2em;
-  margin-bottom: 16px;
-}
-.project-card h4 {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--chrome);
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-.project-card p {
-  font-size: 12px;
-  color: var(--dim);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-.tag {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--glow2);
-  border: 1px solid rgba(79,195,247,0.3);
-  padding: 4px 10px;
-}
-.project-link {
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--silver);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.3s, gap 0.3s;
-}
+.project-card-num { font-family: 'Syncopate', sans-serif; font-size: 10px; color: var(--glow); letter-spacing: 0.2em; margin-bottom: 16px; }
+.project-card h4 { font-family: 'Syncopate', sans-serif; font-size: 13px; font-weight: 700; color: var(--chrome); letter-spacing: 0.05em; margin-bottom: 12px; line-height: 1.4; }
+.project-card p { font-size: 12px; color: var(--dim); line-height: 1.8; margin-bottom: 20px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tag { font-size: 10px; letter-spacing: 0.1em; color: var(--glow2); border: 1px solid rgba(79,195,247,0.3); padding: 4px 10px; }
+.project-link { font-size: 11px; letter-spacing: 0.15em; color: var(--silver); display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s, gap 0.3s; }
 .project-link:hover { color: var(--glow); gap: 14px; }
 
 /* ─── ARTICLES ─────────────────────────────────── */
@@ -558,37 +504,17 @@ section {
 .article-row:hover { padding-left: 20px; }
 .article-row:hover::before { width: 100%; }
 .article-row:first-child { border-top: 1px solid var(--border); }
-
-.article-num {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 10px;
-  color: var(--glow);
-  min-width: 32px;
-}
-.article-title {
-  flex: 1;
-  font-size: 14px;
-  color: var(--chrome);
-  line-height: 1.4;
-  transition: color 0.3s;
-}
+.article-num { font-family: 'Syncopate', sans-serif; font-size: 10px; color: var(--glow); min-width: 32px; }
+.article-title { flex: 1; font-size: 14px; color: var(--chrome); line-height: 1.4; transition: color 0.3s; }
 .article-row:hover .article-title { color: var(--glow); }
 .article-date { font-size: 11px; color: var(--dim); white-space: nowrap; }
-.article-arrow {
-  font-size: 16px;
-  color: var(--dim);
-  transition: color 0.3s, transform 0.3s;
-}
+.article-arrow { font-size: 16px; color: var(--dim); transition: color 0.3s, transform 0.3s; }
 .article-row:hover .article-arrow { color: var(--glow); transform: translateX(6px); }
 
 /* ─── GAME ─────────────────────────────────────── */
 #games { background: var(--black); }
 
-.game-shell {
-  border: 1px solid var(--border);
-  overflow: hidden;
-  position: relative;
-}
+.game-shell { border: 1px solid var(--border); overflow: hidden; position: relative; }
 .game-header {
   display: flex;
   align-items: center;
@@ -614,7 +540,7 @@ section {
   background: #030308;
   overflow: hidden;
   touch-action: none;
-  background-image: 
+  background-image:
     linear-gradient(rgba(0,191,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,191,255,0.03) 1px, transparent 1px);
   background-size: 30px 30px;
@@ -694,7 +620,7 @@ section {
   transition: background 0.15s, box-shadow 0.15s;
   touch-action: manipulation; user-select: none;
 }
-.dpad .btn:active, .dpad .btn.pressed { background: rgba(0,191,255,0.2); box-shadow: 0 0 16px rgba(0,191,255,0.3); }
+.dpad .btn:active { background: rgba(0,191,255,0.2); box-shadow: 0 0 16px rgba(0,191,255,0.3); }
 .btn.up { grid-area: up; }
 .btn.down { grid-area: down; }
 .btn.left { grid-area: left; }
@@ -731,12 +657,7 @@ section {
 }
 .contact-email:hover::after { transform: scaleX(1); }
 
-.social-links {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.social-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
 .social-link {
   display: flex;
   align-items: center;
@@ -749,11 +670,7 @@ section {
   transition: color 0.3s, border-color 0.3s, box-shadow 0.3s;
   text-transform: uppercase;
 }
-.social-link:hover {
-  color: var(--glow);
-  border-color: rgba(0,191,255,0.4);
-  box-shadow: 0 0 20px rgba(0,191,255,0.1);
-}
+.social-link:hover { color: var(--glow); border-color: rgba(0,191,255,0.4); box-shadow: 0 0 20px rgba(0,191,255,0.1); }
 .social-link svg { fill: currentColor; }
 
 /* ─── FOOTER ───────────────────────────────────── */
@@ -779,7 +696,6 @@ footer {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* reveal on scroll */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -791,7 +707,6 @@ footer {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-/* glow pulse on sections */
 @keyframes glowPulse {
   0%,100% { box-shadow: 0 0 0 rgba(0,191,255,0); }
   50%      { box-shadow: 0 0 40px rgba(0,191,255,0.08); }
@@ -814,69 +729,46 @@ section { animation: glowPulse 6s infinite; }
 </head>
 <body>
 
-<!-- CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
-
-<!-- GRID CANVAS -->
 <canvas id="grid-canvas"></canvas>
 
-<!-- SIDE NAV -->
 <nav id="sidenav" aria-label="Section navigation">
   <a class="nav-dot active" href="#hero" data-section="hero">
-    <span class="nav-dot-label">Home</span>
-    <span class="nav-dot-pip"></span>
+    <span class="nav-dot-label">Home</span><span class="nav-dot-pip"></span>
   </a>
   <a class="nav-dot" href="#about" data-section="about">
-    <span class="nav-dot-label">About</span>
-    <span class="nav-dot-pip"></span>
+    <span class="nav-dot-label">About</span><span class="nav-dot-pip"></span>
   </a>
   <a class="nav-dot" href="#work" data-section="work">
-    <span class="nav-dot-label">Work</span>
-    <span class="nav-dot-pip"></span>
+    <span class="nav-dot-label">Work</span><span class="nav-dot-pip"></span>
   </a>
   <a class="nav-dot" href="#articles" data-section="articles">
-    <span class="nav-dot-label">Articles</span>
-    <span class="nav-dot-pip"></span>
+    <span class="nav-dot-label">Articles</span><span class="nav-dot-pip"></span>
   </a>
   <a class="nav-dot" href="#games" data-section="games">
-    <span class="nav-dot-label">Games</span>
-    <span class="nav-dot-pip"></span>
+    <span class="nav-dot-label">Games</span><span class="nav-dot-pip"></span>
   </a>
   <a class="nav-dot" href="#contact" data-section="contact">
-    <span class="nav-dot-label">Contact</span>
-    <span class="nav-dot-pip"></span>
+    <span class="nav-dot-label">Contact</span><span class="nav-dot-pip"></span>
   </a>
 </nav>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- HERO                                            -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- HERO with image -->
 <section id="hero">
-  <video
-    id="curtain-video"
-    src="curtain.webm"
-    muted
-    playsinline
-    preload="auto"
-    aria-hidden="true"
-  ></video>
+  <img id="hero-img" src="hero.jpg" alt="Haneef Olajobi at GITEX Nigeria 2025" />
 
   <div class="hero-content">
     <p class="hero-eyebrow">Cloud Engineer · DevOps · Builder</p>
-
     <h1 class="hero-name">
       <span class="word">Haneef</span>
       <span class="word">Olajobi</span>
     </h1>
-
     <p class="hero-title">// Infrastructure · Automation · Cloud</p>
-
     <p class="hero-desc">
       Designing scalable, automated cloud infrastructure from Nigeria to the world.
       AWS · Terraform · Docker · CI/CD.
     </p>
-
     <div class="hero-btns">
       <div class="btn-wrap">
         <a href="#work" class="mag-btn primary">View Work</a>
@@ -893,9 +785,7 @@ section { animation: glowPulse 6s infinite; }
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- ABOUT                                           -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ABOUT -->
 <section id="about">
   <p class="section-label">01 — About</p>
   <h2 class="section-title">
@@ -903,235 +793,127 @@ section { animation: glowPulse 6s infinite; }
     <span class="split-word"><span class="split-word-inner"> the</span></span>
     <span class="split-word"><span class="split-word-inner"> Cloud.</span></span>
   </h2>
-
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>
-        I'm <strong>Haneef Olajobi</strong>, a Cloud Engineer from Nigeria with a passion for building <strong>scalable, automated, and cost-efficient</strong> cloud solutions. My expertise spans AWS, Python, Terraform, and AI.
-      </p>
-      <p>
-        With <strong>3 years of freelance frontend development</strong> and a 2025 internship where I served as <strong>Technical Lead</strong>, I bring both hands-on engineering depth and leadership experience to every project.
-      </p>
-      <p>
-        Currently building <strong>Multi-Environment-Enterprise-Infrastructure</strong> — a fully automated infrastructure across dev, staging, and production using Terraform.
-      </p>
-
+      <p>I'm <strong>Haneef Olajobi</strong>, a Cloud Engineer from Nigeria with a passion for building <strong>scalable, automated, and cost-efficient</strong> cloud solutions. My expertise spans AWS, Python, Terraform, and AI.</p>
+      <p>With <strong>3 years of freelance frontend development</strong> and a 2025 internship where I served as <strong>Technical Lead</strong>, I bring both hands-on engineering depth and leadership experience to every project.</p>
+      <p>Currently building <strong>Multi-Environment-Enterprise-Infrastructure</strong> — a fully automated infrastructure across dev, staging, and production using Terraform.</p>
       <div class="about-stats reveal reveal-delay-1">
-        <div class="stat-box">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">7</div>
-          <div class="stat-label">Cloud Projects</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">5</div>
-          <div class="stat-label">Articles Written</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Problems Solved</div>
-        </div>
+        <div class="stat-box"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-box"><div class="stat-num">7</div><div class="stat-label">Cloud Projects</div></div>
+        <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">Articles Written</div></div>
+        <div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Problems Solved</div></div>
       </div>
     </div>
-
     <div class="skills-list reveal reveal-delay-2" id="skills-list">
-      <div class="skill-item">
-        <span>AWS</span>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div>
-        <span class="skill-pct">88%</span>
-      </div>
-      <div class="skill-item">
-        <span>Terraform</span>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-w="80"></div></div>
-        <span class="skill-pct">80%</span>
-      </div>
-      <div class="skill-item">
-        <span>Docker</span>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-w="75"></div></div>
-        <span class="skill-pct">75%</span>
-      </div>
-      <div class="skill-item">
-        <span>Python</span>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-w="82"></div></div>
-        <span class="skill-pct">82%</span>
-      </div>
-      <div class="skill-item">
-        <span>Linux / Bash</span>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-w="85"></div></div>
-        <span class="skill-pct">85%</span>
-      </div>
-      <div class="skill-item">
-        <span>CI/CD</span>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-w="78"></div></div>
-        <span class="skill-pct">78%</span>
-      </div>
-      <div class="skill-item">
-        <span>JavaScript</span>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-w="72"></div></div>
-        <span class="skill-pct">72%</span>
-      </div>
+      <div class="skill-item"><span>AWS</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+      <div class="skill-item"><span>Terraform</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="80"></div></div><span class="skill-pct">80%</span></div>
+      <div class="skill-item"><span>Docker</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="75"></div></div><span class="skill-pct">75%</span></div>
+      <div class="skill-item"><span>Python</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="82"></div></div><span class="skill-pct">82%</span></div>
+      <div class="skill-item"><span>Linux / Bash</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="85"></div></div><span class="skill-pct">85%</span></div>
+      <div class="skill-item"><span>CI/CD</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="78"></div></div><span class="skill-pct">78%</span></div>
+      <div class="skill-item"><span>JavaScript</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="72"></div></div><span class="skill-pct">72%</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- WORK                                            -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- WORK -->
 <section id="work">
   <p class="section-label">02 — Work</p>
   <h2 class="section-title">
     <span class="split-word"><span class="split-word-inner">Selected</span></span>
     <span class="split-word"><span class="split-word-inner"> Projects.</span></span>
   </h2>
-
   <div class="projects-grid">
     <div class="project-card reveal reveal-delay-1">
       <div class="project-card-num">001</div>
       <h4>Automatic Backup System</h4>
       <p>Automates daily data backups to Amazon S3 with logging for easy monitoring and recovery.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">AWS S3</span><span class="tag">Cron Jobs</span>
-      </div>
-      <a href="https://github.com/haneeo3/Automatic-Backup-System" target="_blank" class="project-link">
-        View on GitHub <span>→</span>
-      </a>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">AWS S3</span><span class="tag">Cron Jobs</span></div>
+      <a href="https://github.com/haneeo3/Automatic-Backup-System" target="_blank" class="project-link">View on GitHub <span>→</span></a>
     </div>
-
     <div class="project-card reveal reveal-delay-2">
       <div class="project-card-num">002</div>
       <h4>Cloud Cost Calculator</h4>
       <p>Monitors AWS spending and sends notifications when usage exceeds defined cost thresholds.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">Boto3</span><span class="tag">Lambda</span><span class="tag">SNS</span>
-      </div>
-      <a href="https://github.com/haneeo3/Cloud-Cost-Calculator" target="_blank" class="project-link">
-        View on GitHub <span>→</span>
-      </a>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">Boto3</span><span class="tag">Lambda</span><span class="tag">SNS</span></div>
+      <a href="https://github.com/haneeo3/Cloud-Cost-Calculator" target="_blank" class="project-link">View on GitHub <span>→</span></a>
     </div>
-
     <div class="project-card reveal reveal-delay-3">
       <div class="project-card-num">003</div>
       <h4>Website Uptime Monitor</h4>
       <p>Monitors website uptime and delivers real-time alerts when downtime is detected.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">Lambda</span><span class="tag">CloudWatch</span>
-      </div>
-      <a href="https://github.com/haneeo3/Website-Uptime-Monitor" target="_blank" class="project-link">
-        View on GitHub <span>→</span>
-      </a>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">Lambda</span><span class="tag">CloudWatch</span></div>
+      <a href="https://github.com/haneeo3/Website-Uptime-Monitor" target="_blank" class="project-link">View on GitHub <span>→</span></a>
     </div>
-
     <div class="project-card reveal reveal-delay-1">
       <div class="project-card-num">004</div>
       <h4>Customer Inquiry Manager</h4>
       <p>AI-powered system handling customer messages with sentiment analysis and automated responses.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">Bedrock</span><span class="tag">RDS</span><span class="tag">SES</span>
-      </div>
-      <a href="https://github.com/haneeo3/Customer-Inquiry-Manager" target="_blank" class="project-link">
-        View on GitHub <span>→</span>
-      </a>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">Bedrock</span><span class="tag">RDS</span><span class="tag">SES</span></div>
+      <a href="https://github.com/haneeo3/Customer-Inquiry-Manager" target="_blank" class="project-link">View on GitHub <span>→</span></a>
     </div>
-
     <div class="project-card reveal reveal-delay-2">
       <div class="project-card-num">005</div>
       <h4>Serverless Blog Platform</h4>
       <p>Fully serverless blog with CRUD capabilities, image uploads, and zero server management.</p>
-      <div class="project-tags">
-        <span class="tag">Lambda</span><span class="tag">API Gateway</span><span class="tag">DynamoDB</span>
-      </div>
-      <a href="https://github.com/haneeo3/serverless-blog-website" target="_blank" class="project-link">
-        View on GitHub <span>→</span>
-      </a>
+      <div class="project-tags"><span class="tag">Lambda</span><span class="tag">API Gateway</span><span class="tag">DynamoDB</span></div>
+      <a href="https://github.com/haneeo3/serverless-blog-website" target="_blank" class="project-link">View on GitHub <span>→</span></a>
     </div>
-
     <div class="project-card reveal reveal-delay-3">
       <div class="project-card-num">006</div>
       <h4>S3 Backup Automation</h4>
       <p>Lightweight automation tool with timestamped backups and comprehensive operational logging.</p>
-      <div class="project-tags">
-        <span class="tag">Bash</span><span class="tag">AWS CLI</span><span class="tag">S3</span>
-      </div>
-      <a href="https://github.com/haneeo3/S3-Backup-Automation-Script" target="_blank" class="project-link">
-        View on GitHub <span>→</span>
-      </a>
+      <div class="project-tags"><span class="tag">Bash</span><span class="tag">AWS CLI</span><span class="tag">S3</span></div>
+      <a href="https://github.com/haneeo3/S3-Backup-Automation-Script" target="_blank" class="project-link">View on GitHub <span>→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- ARTICLES                                        -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- ARTICLES -->
 <section id="articles">
   <p class="section-label">03 — Writing</p>
   <h2 class="section-title">
     <span class="split-word"><span class="split-word-inner">Articles</span></span>
     <span class="split-word"><span class="split-word-inner"> &amp; Insights.</span></span>
   </h2>
-
   <div class="articles-list reveal">
     <a class="article-row" href="https://medium.com/@olajobihaneef/how-to-build-your-first-web-server-monitoring-system-a-beginners-guide-to-linux-system-d1a7c26ba6d7" target="_blank">
-      <span class="article-num">01</span>
-      <span class="article-title">How to Build Your First Web Server Monitoring System</span>
-      <span class="article-date">2025</span>
-      <span class="article-arrow">→</span>
+      <span class="article-num">01</span><span class="article-title">How to Build Your First Web Server Monitoring System</span><span class="article-date">2025</span><span class="article-arrow">→</span>
     </a>
     <a class="article-row" href="https://medium.com/@olajobihaneef" target="_blank">
-      <span class="article-num">02</span>
-      <span class="article-title">Everyone's Installing MoltBot. Nobody's Asking the Obvious Question.</span>
-      <span class="article-date">Feb 2026</span>
-      <span class="article-arrow">→</span>
+      <span class="article-num">02</span><span class="article-title">Everyone's Installing MoltBot. Nobody's Asking the Obvious Question.</span><span class="article-date">Feb 2026</span><span class="article-arrow">→</span>
     </a>
     <a class="article-row" href="https://medium.com/@olajobihaneef" target="_blank">
-      <span class="article-num">03</span>
-      <span class="article-title">The Job Market in 2026 is Cooked if You Don't Know Cloud Services</span>
-      <span class="article-date">Jan 2026</span>
-      <span class="article-arrow">→</span>
+      <span class="article-num">03</span><span class="article-title">The Job Market in 2026 is Cooked if You Don't Know Cloud Services</span><span class="article-date">Jan 2026</span><span class="article-arrow">→</span>
     </a>
     <a class="article-row" href="https://medium.com/@olajobihaneef" target="_blank">
-      <span class="article-num">04</span>
-      <span class="article-title">If I Had to Learn Cloud Computing in 2026… I'd Do It in 90 Days Using AI</span>
-      <span class="article-date">Dec 2025</span>
-      <span class="article-arrow">→</span>
+      <span class="article-num">04</span><span class="article-title">If I Had to Learn Cloud Computing in 2026… I'd Do It in 90 Days Using AI</span><span class="article-date">Dec 2025</span><span class="article-arrow">→</span>
     </a>
     <a class="article-row" href="https://medium.com/@olajobihaneef/building-a-serverless-video-streaming-platform-with-infracodebase-ee319cd1be09" target="_blank">
-      <span class="article-num">05</span>
-      <span class="article-title">Building a Serverless Video Streaming Platform with InfraCodeBase</span>
-      <span class="article-date">Dec 2025</span>
-      <span class="article-arrow">→</span>
+      <span class="article-num">05</span><span class="article-title">Building a Serverless Video Streaming Platform with InfraCodeBase</span><span class="article-date">Dec 2025</span><span class="article-arrow">→</span>
     </a>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- GAME                                            -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- GAME -->
 <section id="games">
   <p class="section-label">04 — Fun</p>
   <h2 class="section-title">
     <span class="split-word"><span class="split-word-inner">Caterpillar</span></span>
     <span class="split-word"><span class="split-word-inner"> Game.</span></span>
   </h2>
-
   <div class="game-shell reveal">
     <div class="game-header">
-      <div class="game-dots">
-        <div class="game-dot"></div>
-        <div class="game-dot"></div>
-        <div class="game-dot"></div>
-      </div>
+      <div class="game-dots"><div class="game-dot"></div><div class="game-dot"></div><div class="game-dot"></div></div>
       <span>CATERPILLAR.exe</span>
       <span id="scoreDisplay">SCORE: 0</span>
     </div>
-
     <div class="play" id="play" tabindex="0">
       <div class="level-label" id="levelDisplay">LVL 1</div>
       <div class="caterpillar-head" id="head"></div>
       <div class="win" id="win"></div>
     </div>
-
     <div class="controls">
       <div class="dpad" id="dpad">
         <div class="btn up" data-dir="up">▲</div>
@@ -1145,9 +927,7 @@ section { animation: glowPulse 6s infinite; }
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- CONTACT                                         -->
-<!-- ═══════════════════════════════════════════════ -->
+<!-- CONTACT -->
 <section id="contact">
   <p class="section-label">05 — Contact</p>
   <h2 class="section-title reveal">
@@ -1155,11 +935,9 @@ section { animation: glowPulse 6s infinite; }
     <span class="split-word"><span class="split-word-inner"> Build</span></span>
     <span class="split-word"><span class="split-word-inner"> Together.</span></span>
   </h2>
-
   <div class="reveal reveal-delay-1">
     <a href="mailto:olajobihaneef@gmail.com" class="contact-email">olajobihaneef@gmail.com</a>
   </div>
-
   <div class="social-links reveal reveal-delay-2">
     <a href="https://www.linkedin.com/in/haneef-olajobi" target="_blank" class="social-link">
       <svg width="16" height="16" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V23h-4v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23h-4V8z"/></svg>
@@ -1184,26 +962,18 @@ section { animation: glowPulse 6s infinite; }
   <span>Cloud Engineer · Nigeria</span>
 </footer>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- SCRIPTS                                         -->
-<!-- ═══════════════════════════════════════════════ -->
 <script>
 /* ── CURSOR ─────────────────────────────────────── */
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
 let mx = -100, my = -100, rx = -100, ry = -100;
-
 document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 (function animCursor() {
-  rx += (mx - rx) * 0.18;
-  ry += (my - ry) * 0.18;
-  cursor.style.left = mx + 'px';
-  cursor.style.top  = my + 'px';
-  cursorRing.style.left = rx + 'px';
-  cursorRing.style.top  = ry + 'px';
+  rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
   requestAnimationFrame(animCursor);
 })();
-
 document.querySelectorAll('a, .nav-dot').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-link'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-link'));
@@ -1223,39 +993,29 @@ document.querySelectorAll('.btn-wrap').forEach(wrap => {
     const dy = e.clientY - (r.top + r.height / 2);
     btn.style.transform = `translate(${dx * 0.35}px, ${dy * 0.35}px)`;
   });
-  wrap.addEventListener('mouseleave', () => {
-    btn.style.transform = 'translate(0,0)';
-  });
+  wrap.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
 });
 
 /* ── GRID CANVAS ────────────────────────────────── */
 const canvas = document.getElementById('grid-canvas');
 const ctx = canvas.getContext('2d');
-let gridSections = [];
-
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = document.body.scrollHeight;
   drawGrid();
 }
-
 function drawGrid() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const size = 48;
   ctx.strokeStyle = 'rgba(0,191,255,0.07)';
   ctx.lineWidth = 0.5;
-  for (let x = 0; x <= canvas.width; x += size) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
-  }
-  for (let y = 0; y <= canvas.height; y += size) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
-  }
+  for (let x = 0; x <= canvas.width; x += size) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke(); }
+  for (let y = 0; y <= canvas.height; y += size) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke(); }
 }
-
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-/* ── GRID GLOW ON SECTION ENTER ─────────────────── */
+/* ── GRID GLOW ──────────────────────────────────── */
 function pulseGridNear(el) {
   const r = el.getBoundingClientRect();
   const cy = r.top + r.height / 2 + window.scrollY;
@@ -1263,97 +1023,59 @@ function pulseGridNear(el) {
   const rows = Math.ceil(r.height / size) + 4;
   const cols = Math.ceil(canvas.width / size) + 2;
   const startRow = Math.floor((cy - r.height / 2) / size) - 2;
-
-  let frame = 0;
-  const totalFrames = 40;
+  let frame = 0; const totalFrames = 40;
   function animate() {
     drawGrid();
-    const progress = frame / totalFrames;
-    const alpha = Math.sin(progress * Math.PI) * 0.35;
-    ctx.strokeStyle = `rgba(0,191,255,${alpha})`;
-    ctx.lineWidth = 1;
+    const alpha = Math.sin((frame / totalFrames) * Math.PI) * 0.35;
+    ctx.strokeStyle = `rgba(0,191,255,${alpha})`; ctx.lineWidth = 1;
     for (let row = startRow; row <= startRow + rows; row++) {
       const y = row * size;
       for (let col = 0; col <= cols; col++) {
         const x = col * size;
-        if (frame < totalFrames) {
-          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + size, y); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + size); ctx.stroke();
-        }
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + size, y); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + size); ctx.stroke();
       }
     }
     frame++;
-    if (frame < totalFrames) requestAnimationFrame(animate);
-    else drawGrid();
+    if (frame < totalFrames) requestAnimationFrame(animate); else drawGrid();
   }
   animate();
 }
 
-/* ── SCROLL-JACKED VIDEO ────────────────────────── */
-const video = document.getElementById('curtain-video');
-const hero  = document.getElementById('hero');
-
-video.addEventListener('loadedmetadata', () => {
-  video.currentTime = 0;
-  video.pause();
-});
-
-let lastScrollY = 0;
-function updateVideo() {
-  const heroH = hero.offsetHeight;
-  const scrollY = window.scrollY;
-  const pct = Math.min(scrollY / heroH, 1);
-  if (video.duration) {
-    video.currentTime = pct * video.duration;
+/* ── PARALLAX HERO IMAGE ─────────────────────────── */
+const heroImg = document.getElementById('hero-img');
+const hero    = document.getElementById('hero');
+function updateParallax() {
+  if (window.scrollY <= hero.offsetHeight) {
+    heroImg.style.transform = `translateY(${window.scrollY * 0.45}px)`;
   }
-  lastScrollY = scrollY;
 }
-
-/* Mobile fallback: just autoplay */
-if ('ontouchstart' in window) {
-  video.autoplay = true;
-  video.loop = true;
-} else {
-  window.addEventListener('scroll', updateVideo, { passive: true });
-  video.addEventListener('loadedmetadata', () => updateVideo());
-}
+window.addEventListener('scroll', updateParallax, { passive: true });
+updateParallax();
 
 /* ── SIDE NAV ACTIVE ────────────────────────────── */
 const sections = document.querySelectorAll('section[id]');
-const navDots  = document.querySelectorAll('.nav-dot[data-section]');
-
 function updateNav() {
   const mid = window.scrollY + window.innerHeight / 2;
   sections.forEach(sec => {
-    const top = sec.offsetTop;
-    const bot = top + sec.offsetHeight;
     const dot = document.querySelector(`.nav-dot[data-section="${sec.id}"]`);
-    if (dot) dot.classList.toggle('active', mid >= top && mid < bot);
+    if (dot) dot.classList.toggle('active', mid >= sec.offsetTop && mid < sec.offsetTop + sec.offsetHeight);
   });
 }
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
 
 /* ── SCROLL REVEALS ─────────────────────────────── */
-const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObs.unobserve(e.target);
-    }
-  });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.12 });
-revealEls.forEach(el => revealObs.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* ── SPLIT TEXT REVEAL ──────────────────────────── */
+/* ── SPLIT TEXT ─────────────────────────────────── */
 const splitObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      const inners = e.target.querySelectorAll('.split-word-inner');
-      inners.forEach((w, i) => {
-        setTimeout(() => w.classList.add('revealed'), i * 120);
-      });
+      e.target.querySelectorAll('.split-word-inner').forEach((w, i) => setTimeout(() => w.classList.add('revealed'), i * 120));
       pulseGridNear(e.target);
       splitObs.unobserve(e.target);
     }
@@ -1365,9 +1087,7 @@ document.querySelectorAll('.section-title').forEach(el => splitObs.observe(el));
 const barObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-bar').forEach(bar => {
-        bar.style.width = bar.dataset.w + '%';
-      });
+      e.target.querySelectorAll('.skill-bar').forEach(bar => { bar.style.width = bar.dataset.w + '%'; });
       barObs.unobserve(e.target);
     }
   });
@@ -1379,34 +1099,26 @@ if (skillsList) barObs.observe(skillsList);
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width  - 0.5;
-    const y = (e.clientY - r.top)  / r.height - 0.5;
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
     card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(4px)`;
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(600px) rotateY(0) rotateX(0) translateZ(0)';
-  });
+  card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(600px) rotateY(0) rotateX(0) translateZ(0)'; });
 });
 
-/* ── RESIZE grid canvas on content change ───────── */
-const resizeObs = new ResizeObserver(() => resizeCanvas());
-resizeObs.observe(document.body);
+new ResizeObserver(() => resizeCanvas()).observe(document.body);
 
-/* ════════════════════════════════════════════════ */
-/* CATERPILLAR GAME                                 */
-/* ════════════════════════════════════════════════ */
-const play        = document.getElementById('play');
-const headEl      = document.getElementById('head');
-const winMsg      = document.getElementById('win');
-const levelDisp   = document.getElementById('levelDisplay');
-const scoreDisp   = document.getElementById('scoreDisplay');
-const startBtn    = document.getElementById('startBtn');
+/* ── GAME ───────────────────────────────────────── */
+const play = document.getElementById('play');
+const headEl = document.getElementById('head');
+const winMsg = document.getElementById('win');
+const levelDisp = document.getElementById('levelDisplay');
+const scoreDisp = document.getElementById('scoreDisplay');
+const startBtn = document.getElementById('startBtn');
 
-let headPos = { x: 280, y: 180 };
-let speed = 10, segments = [], leaves = [];
+let headPos = { x: 280, y: 180 }, speed = 10, segments = [], leaves = [];
 let level = 1, maxLevel = 5, score = 0;
-let direction = null, keyHeld = {}, gameStarted = false, gameInterval = null;
-let activeButton = null;
+let direction = null, keyHeld = {}, gameStarted = false, gameInterval = null, activeButton = null;
 
 function startLevel() {
   winMsg.style.display = 'none';
@@ -1414,75 +1126,61 @@ function startLevel() {
   scoreDisp.textContent = 'SCORE: ' + score;
   const pw = play.clientWidth, ph = play.clientHeight;
   headPos = { x: pw/2 - 18, y: ph/2 - 18 };
-  headEl.style.left = headPos.x + 'px';
-  headEl.style.top  = headPos.y + 'px';
+  headEl.style.left = headPos.x + 'px'; headEl.style.top = headPos.y + 'px';
   segments.forEach(s => s.remove()); segments = [];
   leaves.forEach(l => l.remove()); leaves = [];
   const total = 5 + (level - 1) * 2;
   for (let i = 0; i < total; i++) {
-    const leaf = document.createElement('div');
-    leaf.className = 'leaf';
+    const leaf = document.createElement('div'); leaf.className = 'leaf';
     leaf.style.left = Math.random() * (pw - 24) + 'px';
-    leaf.style.top  = Math.random() * (ph - 24) + 'px';
-    play.appendChild(leaf);
-    leaves.push(leaf);
+    leaf.style.top = Math.random() * (ph - 24) + 'px';
+    play.appendChild(leaf); leaves.push(leaf);
   }
 }
 
 function addSeg() {
-  const seg = document.createElement('div');
-  seg.className = 'segment';
-  seg.style.left = headPos.x + 'px';
-  seg.style.top  = headPos.y + 'px';
-  play.appendChild(seg);
-  segments.push(seg);
+  const seg = document.createElement('div'); seg.className = 'segment';
+  seg.style.left = headPos.x + 'px'; seg.style.top = headPos.y + 'px';
+  play.appendChild(seg); segments.push(seg);
 }
 
 function applyDir() {
-  if (keyHeld['w'] || keyHeld['ArrowUp'])    direction = 'up';
-  else if (keyHeld['s'] || keyHeld['ArrowDown'])  direction = 'down';
-  else if (keyHeld['a'] || keyHeld['ArrowLeft'])  direction = 'left';
+  if (keyHeld['w'] || keyHeld['ArrowUp']) direction = 'up';
+  else if (keyHeld['s'] || keyHeld['ArrowDown']) direction = 'down';
+  else if (keyHeld['a'] || keyHeld['ArrowLeft']) direction = 'left';
   else if (keyHeld['d'] || keyHeld['ArrowRight']) direction = 'right';
 }
 
 function update() {
   if (!gameStarted) return;
   applyDir();
-  if (direction === 'up')    headPos.y -= speed;
-  if (direction === 'down')  headPos.y += speed;
-  if (direction === 'left')  headPos.x -= speed;
+  if (direction === 'up') headPos.y -= speed;
+  if (direction === 'down') headPos.y += speed;
+  if (direction === 'left') headPos.x -= speed;
   if (direction === 'right') headPos.x += speed;
   const pw = play.clientWidth, ph = play.clientHeight;
   headPos.x = Math.max(0, Math.min(pw - 36, headPos.x));
   headPos.y = Math.max(0, Math.min(ph - 36, headPos.y));
-  headEl.style.left = headPos.x + 'px';
-  headEl.style.top  = headPos.y + 'px';
-
+  headEl.style.left = headPos.x + 'px'; headEl.style.top = headPos.y + 'px';
   let px = headPos.x, py = headPos.y;
   segments.forEach(seg => {
     const sx = parseFloat(seg.style.left), sy = parseFloat(seg.style.top);
     seg.style.left = sx + (px - sx) * 0.18 + 'px';
-    seg.style.top  = sy + (py - sy) * 0.18 + 'px';
+    seg.style.top = sy + (py - sy) * 0.18 + 'px';
     px = sx; py = sy;
   });
-
   leaves.forEach((leaf, idx) => {
     if (!leaf) return;
     if (Math.abs(leaf.offsetLeft - headPos.x) < 30 && Math.abs(leaf.offsetTop - headPos.y) < 30) {
       leaf.remove(); leaves.splice(idx, 1); addSeg();
-      score += 10;
-      scoreDisp.textContent = 'SCORE: ' + score;
+      score += 10; scoreDisp.textContent = 'SCORE: ' + score;
       if (leaves.length === 0) {
         if (level < maxLevel) {
-          winMsg.textContent = `LEVEL ${level} COMPLETE`;
-          winMsg.style.display = 'block';
-          score += 50; level++;
-          setTimeout(startLevel, 1500);
+          winMsg.textContent = `LEVEL ${level} COMPLETE`; winMsg.style.display = 'block';
+          score += 50; level++; setTimeout(startLevel, 1500);
         } else {
-          winMsg.textContent = `ALL LEVELS CLEAR · ${score} PTS`;
-          winMsg.style.display = 'block';
-          gameStarted = false;
-          startBtn.textContent = 'RESTART';
+          winMsg.textContent = `ALL LEVELS CLEAR · ${score} PTS`; winMsg.style.display = 'block';
+          gameStarted = false; startBtn.textContent = 'RESTART';
         }
       }
     }
@@ -1492,34 +1190,24 @@ function update() {
 
 function toggleGame() {
   if (!gameStarted) {
-    gameStarted = true;
-    startBtn.textContent = 'PAUSE';
-    if (winMsg.style.display === 'block' && level > maxLevel) {
-      level = 1; score = 0;
-      segments.forEach(s => s.remove()); segments = [];
-    }
-    startLevel();
-    gameInterval = requestAnimationFrame(update);
+    gameStarted = true; startBtn.textContent = 'PAUSE';
+    if (winMsg.style.display === 'block' && level > maxLevel) { level = 1; score = 0; segments.forEach(s => s.remove()); segments = []; }
+    startLevel(); gameInterval = requestAnimationFrame(update);
   } else {
-    gameStarted = false;
-    startBtn.textContent = 'RESUME';
-    cancelAnimationFrame(gameInterval);
+    gameStarted = false; startBtn.textContent = 'RESUME'; cancelAnimationFrame(gameInterval);
   }
 }
 
 startBtn.addEventListener('click', toggleGame);
 startBtn.addEventListener('touchstart', e => { e.preventDefault(); toggleGame(); }, { passive: false });
 play.addEventListener('click', () => play.focus());
-
 document.addEventListener('keydown', e => {
   if (document.activeElement !== play) return;
   if (['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) {
-    e.preventDefault(); keyHeld[e.key] = true;
-    if (!gameStarted) toggleGame();
+    e.preventDefault(); keyHeld[e.key] = true; if (!gameStarted) toggleGame();
   }
 });
 document.addEventListener('keyup', e => { delete keyHeld[e.key]; });
-
 document.querySelectorAll('.dpad .btn[data-dir]').forEach(btn => {
   const dir = btn.dataset.dir;
   const s = ev => { ev.preventDefault(); direction = dir; activeButton = dir; if (!gameStarted) toggleGame(); };
@@ -1530,7 +1218,6 @@ document.querySelectorAll('.dpad .btn[data-dir]').forEach(btn => {
   btn.addEventListener('mouseup', e);
 });
 document.addEventListener('mouseup', () => { if (activeButton) { direction = null; activeButton = null; } });
-
 startLevel();
 </script>
 </body>
